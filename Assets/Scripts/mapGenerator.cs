@@ -17,13 +17,15 @@ public class mapGenerator : MonoBehaviour
 
    public void generateMap()
    {
+        this.SetParent(GameObject.Find("Map").gameObject);
+        this.SetMapTile(Resources.Load("Prefabs/mapTile")  as GameObject);
        for (int y=0;y < mapHeight; y++)
        {
            for (int x= 0; x < mapWidth; x++)
            {
                GameObject newTile = Instantiate(mapTile);
                newTile.transform.SetParent(MapGO.transform);
-               newTile.name= "mapTile"+x+" "+y;
+               newTile.name= "mapTile"+y+" "+x;
 
 //newTile.transform.position = new Vector2(x-(mapWidth-x),y-(mapHeight-y));
                newTile.transform.position = new Vector2(x,y);
