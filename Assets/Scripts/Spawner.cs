@@ -8,21 +8,23 @@ public class Spawner : MonoBehaviour
 
     private float spawnRate = 0.25f;
 
+    private float spawnDelay = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        spawnDelay = spawnRate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawnRate < 0f && tileData.path.Count > 0)
+        if (spawnDelay < 0f && tileData.path.Count > 0)
         {
-            spawnRate = 0.25f;
+            spawnDelay = spawnRate;
             Instantiate(enemy, tileData.path[0], Quaternion.identity);
         }
 
-        spawnRate -= Time.deltaTime;
+        spawnDelay -= Time.deltaTime;
     }
 }
