@@ -9,7 +9,7 @@ public class BaseMissile : MonoBehaviour
 
     public void SetTarget(GameObject target)
     {
-        transform.position += Vector3.forward * 2f;
+        transform.position += Vector3.forward * 0f;
         this.target = target;
     }
 
@@ -22,7 +22,7 @@ public class BaseMissile : MonoBehaviour
     {
         if (lastKnownPosition != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, lastKnownPosition, Time.deltaTime * 3f);
+            transform.position = Vector3.MoveTowards(transform.position, lastKnownPosition, Time.deltaTime * 6f);
         }
 
         if (target != null)

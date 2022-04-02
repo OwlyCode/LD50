@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 98d1c6c862239e5458de08eface4c9f9
+guid: c89c3f9bf2be4a846981b40611c15d12
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -44,12 +44,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -73,7 +73,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -121,9 +121,9 @@ TextureImporter:
         x: 4
         y: 4
         width: 321
-        height: 281
+        height: 329
       alignment: 9
-      pivot: {x: 0.5, y: 0.29893237}
+      pivot: {x: 0.5, y: 0.25846153}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,12 +139,12 @@ TextureImporter:
       name: tower_1
       rect:
         serializedVersion: 2
-        x: 333
+        x: 334
         y: 4
         width: 321
-        height: 283
+        height: 325
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,9 +163,9 @@ TextureImporter:
         x: 662
         y: 4
         width: 321
-        height: 285
+        height: 325
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,9 +184,9 @@ TextureImporter:
         x: 991
         y: 4
         width: 321
-        height: 283
+        height: 325
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,7 +201,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 580ed4f324ed1b84ca625dc698d181f3
     internalID: 0
     vertices: []
     indices: 

@@ -10,9 +10,9 @@ public class Enemy : MonoBehaviour
     List<Vector3> path;
     Vector3 currentTarget;
 
-    float offsetShakiness = 0.25f;
+    float offsetShakiness = 0.125f;
 
-    float zOffset = 2f;
+    float zOffset = 0f;
 
     Vector3 offset;
 
@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
     {
         StaticVar.EnemiesKIA = 1;
         StaticVar.Ressource = 1; /// Modifier la vazleur par Ennemi.value si on fait differents types d'ennemis.
-        Debug.Log("Ennemies Killed : "+StaticVar.EnemiesKIA);
+        Debug.Log("Ennemies Killed : " + StaticVar.EnemiesKIA);
         Destroy(gameObject);
     }
 }

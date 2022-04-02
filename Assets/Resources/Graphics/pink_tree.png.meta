@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 98d1c6c862239e5458de08eface4c9f9
+guid: 7c2711e42ac36a141821bdd37ae646ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6304826840174917774
-    second: tower_0
+      213: 5979338062877196325
+    second: pink_tree_0
   - first:
-      213: 6156901781275099173
-    second: tower_1
+      213: -6630082707678430701
+    second: pink_tree_1
   - first:
-      213: 4625833658082079308
-    second: tower_2
+      213: -4144021043706260147
+    second: pink_tree_2
   - first:
-      213: -7577164617122143832
-    second: tower_3
+      213: -3630349375299431735
+    second: pink_tree_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,34 +115,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tower_0
+      name: pink_tree_0
       rect:
         serializedVersion: 2
         x: 4
         y: 4
         width: 321
-        height: 281
+        height: 231
       alignment: 9
-      pivot: {x: 0.5, y: 0.29893237}
+      pivot: {x: 0.5, y: 0.36363637}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8879f25b9e3f7750800000000000000
-      internalID: 6304826840174917774
+      spriteID: 52084cdc940eaf250800000000000000
+      internalID: 5979338062877196325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tower_1
+      name: pink_tree_1
       rect:
         serializedVersion: 2
         x: 333
         y: 4
         width: 321
-        height: 283
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5204fd5ac85b17550800000000000000
-      internalID: 6156901781275099173
+      spriteID: 31afd51b7e63df3a0800000000000000
+      internalID: -6630082707678430701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tower_2
+      name: pink_tree_2
       rect:
         serializedVersion: 2
         x: 662
         y: 4
         width: 321
-        height: 285
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c42370c0433423040800000000000000
-      internalID: 4625833658082079308
+      spriteID: d45152411da7d76c0800000000000000
+      internalID: -4144021043706260147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tower_3
+      name: pink_tree_3
       rect:
         serializedVersion: 2
         x: 991
         y: 4
         width: 321
-        height: 283
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a1a6cf1de088d690800000000000000
-      internalID: -7577164617122143832
+      spriteID: 9c257b24a786e9dc0800000000000000
+      internalID: -3630349375299431735
       vertices: []
       indices: 
       edges: []
