@@ -2623,7 +2623,7 @@ Grid:
   m_Enabled: 1
   m_CellSize: {x: 1, y: 0.5, z: 1}
   m_CellGap: {x: 0, y: 0, z: 0}
-  m_CellLayout: 3
+  m_CellLayout: 2
   m_CellSwizzle: 0
 --- !u!4 &1709377193
 Transform:
@@ -2651,13 +2651,15 @@ GameObject:
   - component: {fileID: 2072109868}
   - component: {fileID: 2072109867}
   - component: {fileID: 2072109869}
+  - component: {fileID: 2072109870}
+  - component: {fileID: 2072109871}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2072109867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2700,3 +2702,30 @@ MonoBehaviour:
   mapTile: {fileID: 0}
   mapWidth: 10
   mapHeight: 10
+--- !u!114 &2072109870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072109866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082214519a047814785b323b8fb9b4fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 1709377192}
+--- !u!114 &2072109871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072109866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8227f7266b6fd7a42b531b74f99a11ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tilemap: {fileID: 1173743656}
+  grid: {fileID: 1709377192}

@@ -6,6 +6,7 @@ public class main : MonoBehaviour
 {
     private GameObject mapTile;
     public mapGenerator mapGen;
+    
     private void Awake() => Init();
 
     public void Init(){
