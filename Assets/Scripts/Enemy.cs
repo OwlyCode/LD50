@@ -61,8 +61,9 @@ public class Enemy : MonoBehaviour
     void onDeath()
     {
         StaticVar.EnemiesKIA = 1;
-        StaticVar.Ressource = 1; /// Modifier la vazleur par Ennemi.value si on fait differents types d'ennemis.
-        Debug.Log("Ennemies Killed : " + StaticVar.EnemiesKIA);
+        StaticVar.Ressource = 1f; /// Modifier la vazleur par Ennemi.value si on fait differents types d'ennemis.
+        StaticVar.Ressource = 0.5f/Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA,-1))+5);
+        //Debug.Log("Ennemies value : " + 0.5f/Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA,-1))+5));
         Destroy(gameObject);
     }
 }
