@@ -36,6 +36,7 @@ public class mapManager : MonoBehaviour
 				if (_tile.Constructible && StaticVar.Ressource >= 1) {
 					_tile.TilemapMember.SetTile(_tile.LocalPlace,tower); 
 					StaticVar.Ressource = -1;
+					StaticVar.Tower += 1;
 					_tile.Constructible = false;
 				}
             }

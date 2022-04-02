@@ -12,6 +12,7 @@ public class StaticVar
     public static Text RessourceText;
     public static float Volume {get; private set;}
     private static int _enemieskia;
+    public static int Tower {get; set;}
     public static int EnemiesKIA { 
         get {
             return _enemieskia;
@@ -20,14 +21,14 @@ public class StaticVar
             _enemieskia += value;
         }
     }
-    private static int _ressource;
-    public static int Ressource { 
+    private static float _ressource;
+    public static float Ressource { 
         get {
             return _ressource;
         }
         set {
             _ressource += value;
-            StaticVar.RessourceText.text = "Ressources : "+ _ressource;
+            StaticVar.RessourceText.text = "Ressources : "+ Mathf.FloorToInt(_ressource);
         }
     }
     
