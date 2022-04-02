@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     Vector3 offset;
 
     public GameObject unicorn;
+    public GameObject explosion;
 
     void Start()
     {
@@ -67,6 +68,10 @@ public class Enemy : MonoBehaviour
         StaticVar.Ressource = 0.5f / Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA, -1)) + 5);
         //Debug.Log("Ennemies value : " + 0.5f/Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA,-1))+5));
         Destroy(gameObject);
-        Instantiate(unicorn, transform.position, Quaternion.identity);
+        if (Random.Range(0, 100) > 80)
+        {
+            Instantiate(unicorn, transform.position, Quaternion.identity);
+        }
+        Instantiate(explosion, transform.position, Quaternion.identity);
     }
 }
