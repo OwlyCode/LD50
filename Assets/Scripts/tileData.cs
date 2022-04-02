@@ -33,6 +33,7 @@ public class tileData : MonoBehaviour
         GetWorldTiles();
 
         path = computePath();
+		StaticVar.TimeStart = Time.time;
     }
 
     // Use this for initialization

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class StaticVar
 {
+    public static bool Lose = false;
+    public static bool gameIsPaused = false;
     public static Camera MainCam;// {get; private set;}
     public static GameObject CamO {get; private set;}
     public static GameObject LightO {get; private set;}
@@ -13,6 +15,9 @@ public class StaticVar
     public static float Volume {get; private set;}
     private static int _enemieskia;
     public static int Tower {get; set;}
+    public static float TimeStart {get; set;}
+    public static float TimeStop {get; set;}
+
     public static int EnemiesKIA { 
         get {
             return _enemieskia;

@@ -33,7 +33,7 @@ public class mapManager : MonoBehaviour
                 _tile.TilemapMember.SetTileFlags(_tile.LocalPlace, TileFlags.None);
                 _tile.TilemapMember.SetColor(_tile.LocalPlace, Color.red);*/
 				Debug.Log("Ressource " +StaticVar.Ressource);
-				if (_tile.Constructible && StaticVar.Ressource >= 1) {
+				if (!StaticVar.gameIsPaused && _tile.Constructible && StaticVar.Ressource >= 1) {
 					_tile.TilemapMember.SetTile(_tile.LocalPlace,tower); 
 					StaticVar.Ressource = -1;
 					StaticVar.Tower += 1;
