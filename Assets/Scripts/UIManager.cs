@@ -55,6 +55,7 @@ public class UIManager : MonoBehaviour {
             }
         }
         if (value == "Win" || value == "Lose") {
+            PauseUnpause();
             foreach (DictionaryEntry entry in UIList) {
                 if ((string)entry.Key == value) {
                     ((CanvasGroup)entry.Value).alpha = 1;

@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
-{
+public class Enemy : MonoBehaviour {
     const float MOVE_SPEED = 0.5f * 30f;
 
     bool walking = false;
@@ -16,53 +15,41 @@ public class Enemy : MonoBehaviour
 
     Vector3 offset;
 
-    void Start()
-    {
+    void Start() {
         offset = new Vector3(Random.Range(-offsetShakiness, offsetShakiness), Random.Range(-offsetShakiness, offsetShakiness), 0);
     }
 
-    void Update()
-    {
-        if (!walking && tileData.path.Count > 0)
-        {
+    void Update() {
+        if (!walking && tileData.path.Count > 0) {
             walking = true;
             path = new List<Vector3>(tileData.path); // copy
             currentTarget = path[0] + Vector3.forward * zOffset + offset;
             path.RemoveAt(0);
         }
 
-        if (walking)
-        {
-            if (Vector3.Distance(transform.position, currentTarget) < 0.01f)
-            {
-                if (path.Count > 0)
-                {
+        if (walking) {
+            if (Vector3.Distance(transform.position, currentTarget) < 0.01f) {
+                if (path.Count > 0) {
                     currentTarget = path[0] + Vector3.forward * zOffset + offset;
                     path.RemoveAt(0);
-                }
-                else
-                {
+                } else {
                     walking = false;
                 }
-            }
-            else
-            {
+            } else {
                 transform.position = Vector3.MoveTowards(transform.position, currentTarget, Time.deltaTime * MOVE_SPEED);
             }
         }
 
-        if (walking && path.Count == 0)
-        {
+        if (walking && path.Count == 0) {
             GameObject.Find("/Map").BroadcastMessage("DestroyDreamland", 3);
             Destroy(gameObject);
         }
     }
 
-    void onDeath()
-    {
+    void onDeath() {
         StaticVar.EnemiesKIA = 1;
         StaticVar.Ressource = 1f; /// Modifier la vazleur par Ennemi.value si on fait differents types d'ennemis.
-        StaticVar.Ressource = 0.5f/Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA,-1))+5);
+        StaticVar.Ressource = 0.5f / Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA, -1)) + 5);
         //Debug.Log("Ennemies value : " + 0.5f/Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA,-1))+5));
         Destroy(gameObject);
     }
