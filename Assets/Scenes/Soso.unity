@@ -4072,7 +4072,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tilemap: {fileID: 884576403}
   grid: {fileID: 949806937}
-  dreamlandCells: []
+  nightmareTiles:
+  - {fileID: 11400000, guid: 801531c78aa4bd04f82c3cd99e969cf3, type: 2}
 --- !u!114 &1713702563
 MonoBehaviour:
   m_ObjectHideFlags: 0

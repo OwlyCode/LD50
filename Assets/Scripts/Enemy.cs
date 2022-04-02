@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    const float MOVE_SPEED = 0.5f * 30f;
+    const float MOVE_SPEED = 0.5f;
 
     bool walking = false;
     List<Vector3> path;
@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     float zOffset = 0f;
 
     Vector3 offset;
+
+    public GameObject unicorn;
 
     void Start()
     {
@@ -62,8 +64,9 @@ public class Enemy : MonoBehaviour
     {
         StaticVar.EnemiesKIA = 1;
         StaticVar.Ressource = 1f; /// Modifier la vazleur par Ennemi.value si on fait differents types d'ennemis.
-        StaticVar.Ressource = 0.5f/Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA,-1))+5);
+        StaticVar.Ressource = 0.5f / Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA, -1)) + 5);
         //Debug.Log("Ennemies value : " + 0.5f/Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA,-1))+5));
         Destroy(gameObject);
+        Instantiate(unicorn, transform.position, Quaternion.identity);
     }
 }
