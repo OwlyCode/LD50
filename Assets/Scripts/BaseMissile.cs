@@ -22,13 +22,13 @@ public class BaseMissile : MonoBehaviour
     {
         if (lastKnownPosition != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, lastKnownPosition, Time.deltaTime * 2f);
+            transform.position = Vector3.MoveTowards(transform.position, lastKnownPosition, Time.deltaTime * 3f);
         }
 
         if (target != null)
         {
             lastKnownPosition = target.transform.position;
-            if (target.transform.position == transform.position)
+            if (Vector3.Distance(transform.position, lastKnownPosition) < 0.05f)
             {
                 Destroy(gameObject);
                 target.BroadcastMessage("onDeath");
@@ -36,7 +36,7 @@ public class BaseMissile : MonoBehaviour
         }
         else
         {
-            if (transform.position == lastKnownPosition)
+            if (Vector3.Distance(transform.position, lastKnownPosition) < 0.05f)
             {
                 Destroy(gameObject); // Missed hit
             }

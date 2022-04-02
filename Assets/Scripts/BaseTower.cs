@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseTower : MonoBehaviour
 {
-    const float FIRE_COOLDOWN = 0.5f;
+    const float FIRE_COOLDOWN = 2.5f;
 
     public GameObject projectilePrefab;
 
@@ -15,7 +15,6 @@ public class BaseTower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("PLOP");
         this.targets = new List<GameObject>();
     }
 
@@ -28,7 +27,6 @@ public class BaseTower : MonoBehaviour
 
             if (t != null)
             {
-                Debug.Log("FIRE");
                 cooldown = FIRE_COOLDOWN;
                 var p = Instantiate(projectilePrefab);
                 p.transform.position = transform.Find("Emitter").transform.position; // transform.position;
