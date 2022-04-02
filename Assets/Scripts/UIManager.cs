@@ -44,11 +44,13 @@ public class UIManager : MonoBehaviour {
             } else if (!StaticVar.gameIsPaused && (((CanvasGroup)UIList["Obj"]).alpha == 0)) { // or just summon but Pause wasn't enforced
                 StaticVar.gameIsPaused = true;
                 PauseUnpause();
-                ((CanvasGroup)UIList["Main"]).alpha = 1;
+                ((CanvasGroup)UIList["Main"]).alpha = 0;
                 ((CanvasGroup)UIList["Obj"]).alpha = 1;
             } else if (StaticVar.gameIsPaused && (((CanvasGroup)UIList["Obj"]).alpha == 1)) { //Otherwise Just unpause and leave
                 StaticVar.gameIsPaused = false;
                 PauseUnpause();
+                ((CanvasGroup)UIList["Pause"]).alpha = 0;
+                ((CanvasGroup)UIList["Main"]).alpha = 1;
                 ((CanvasGroup)UIList["Obj"]).alpha = 0;
             }
         }
