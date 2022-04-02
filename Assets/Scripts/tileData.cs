@@ -5,6 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class tileData : MonoBehaviour
 {
+    const string PATHWAY_TILE = "pathway_v2";
+
     public static tileData instance;
     public Tilemap Tilemap;
     public Grid grid;
@@ -26,7 +28,7 @@ public class tileData : MonoBehaviour
             Destroy(gameObject);
         }
 
-		//StaticVar.Ressource=1;
+        //StaticVar.Ressource=1;
 
         GetWorldTiles();
 
@@ -39,11 +41,11 @@ public class tileData : MonoBehaviour
         tiles = new Dictionary<Vector3, WorldTile>();
         foreach (Vector3Int pos in Tilemap.cellBounds.allPositionsWithin)
         {
-			bool tmp = true;
+            bool tmp = true;
             var localPlace = new Vector3Int(pos.x, pos.y, pos.z);
 
             if (!Tilemap.HasTile(localPlace)) continue;
-			if (Tilemap.GetTile(localPlace).name == "pathway_tile") {tmp=false;}
+            if (Tilemap.GetTile(localPlace).name == PATHWAY_TILE) { tmp = false; }
 
             var tile = new WorldTile
             {
@@ -51,7 +53,7 @@ public class tileData : MonoBehaviour
                 WorldLocation = grid.GetCellCenterWorld(localPlace),
                 TileBase = Tilemap.GetTile(localPlace),
                 TilemapMember = Tilemap,
-				Constructible = tmp,
+                Constructible = tmp,
                 Name = localPlace.x + "," + localPlace.y,
                 Cost = -1 // TODO: Change this with the proper cost from ruletile
             };
@@ -90,7 +92,7 @@ public class tileData : MonoBehaviour
                     if (closed.Contains(scanned)) continue;
 
                     var tile = Tilemap.GetTile(scanned);
-                    if (tile && tile.name == "pathway_tile")
+                    if (tile && tile.name == PATHWAY_TILE)
                     {
                         path.Add(current + new Vector3Int(x, y, 0));
                         closed.Add(current);
@@ -127,7 +129,7 @@ public class tileData : MonoBehaviour
 
             if (tile != null)
             {
-                if (tile.name == "pathway_tile")
+                if (tile.name == PATHWAY_TILE)
                 {
                     return new Vector3Int(x, entranceY, 0);
                 }
