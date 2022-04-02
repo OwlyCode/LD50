@@ -77,6 +77,8 @@ public class tileData : MonoBehaviour
                 {
                     if (x == 0 && y == 0) continue;
 
+                    if (x != 0 && y != 0) continue;
+
                     var scanned = current + new Vector3Int(x, y, 0);
 
                     if (closed.Contains(scanned)) continue;
