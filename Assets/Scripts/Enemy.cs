@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
             {
                 if (path.Count > 0)
                 {
-                    currentTarget = path[0] + Vector3.forward * 2f;
+                    currentTarget = path[0] + Vector3.forward * 2f + (Vector3.up * 0.5f) / 2f;
                     path.RemoveAt(0);
                 }
                 else
