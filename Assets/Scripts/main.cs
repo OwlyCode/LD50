@@ -9,8 +9,7 @@ public class main : MonoBehaviour
     private void Awake() => Init();
 
     public void Init(){
-        mapGen.SetParent(GameObject.Find("Map").gameObject);
-        mapGen.SetMapTile(Resources.Load("Prefabs/mapTile")  as GameObject);
-        mapGen.generateMap();
+
+    //    mapGen.generateMap();
     }
 }
