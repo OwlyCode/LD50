@@ -55,6 +55,7 @@ public class UIManager : MonoBehaviour {
             }
         }
         if (value == "Win" || value == "Lose") {
+            StaticVar.gameIsPaused = true;
             PauseUnpause();
             foreach (DictionaryEntry entry in UIList) {
                 if ((string)entry.Key == value) {
