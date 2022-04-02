@@ -11,12 +11,17 @@ public class tileData : MonoBehaviour
     public Tilemap Tilemap;
     public Grid grid;
 
+    public List<Tile> nightmareTiles;
+
     public Dictionary<Vector3, WorldTile> tiles;
+
+    private List<Vector3Int> dreamlandCells;
 
     public static List<Vector3> path;
 
     private void Awake()
     {
+        dreamlandCells = new List<Vector3Int>();
         path = new List<Vector3>();
 
         if (instance == null)
@@ -35,6 +40,27 @@ public class tileData : MonoBehaviour
         path = computePath();
     }
 
+    public void DestroyDreamland(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            if (dreamlandCells.Count > 0)
+            {
+                Debug.Log("BOOM");
+
+                var coords = Random.Range(0, dreamlandCells.Count);
+
+                Tilemap.SetTile(dreamlandCells[coords], nightmareTiles[Random.Range(0, nightmareTiles.Count)]);
+
+                dreamlandCells.RemoveAt(coords);
+            }
+            else
+            {
+                Debug.Log("GAME LOST"); // @TODO END OF THE GAME
+            }
+        }
+    }
+
     // Use this for initialization
     private void GetWorldTiles()
     {
@@ -46,6 +72,12 @@ public class tileData : MonoBehaviour
 
             if (!Tilemap.HasTile(localPlace)) continue;
             if (Tilemap.GetTile(localPlace).name == PATHWAY_TILE) { tmp = false; }
+
+            if (tmp)
+            {
+                dreamlandCells.Add(localPlace);
+
+            }
 
             var tile = new WorldTile
             {

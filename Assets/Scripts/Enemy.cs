@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    const float MOVE_SPEED = 0.5f;
+    const float MOVE_SPEED = 0.5f * 30f;
 
     bool walking = false;
     List<Vector3> path;
@@ -51,6 +51,11 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        if (walking && path.Count == 0)
+        {
+            GameObject.Find("/Map").BroadcastMessage("DestroyDreamland", 3);
+            Destroy(gameObject);
+        }
     }
 
     void onDeath()
