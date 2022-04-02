@@ -26,6 +26,8 @@ public class tileData : MonoBehaviour
             Destroy(gameObject);
         }
 
+		//StaticVar.Ressource=1;
+
         GetWorldTiles();
 
         path = computePath();
@@ -37,15 +39,19 @@ public class tileData : MonoBehaviour
         tiles = new Dictionary<Vector3, WorldTile>();
         foreach (Vector3Int pos in Tilemap.cellBounds.allPositionsWithin)
         {
+			bool tmp = true;
             var localPlace = new Vector3Int(pos.x, pos.y, pos.z);
 
             if (!Tilemap.HasTile(localPlace)) continue;
+			if (Tilemap.GetTile(localPlace).name == "pathway_tile") {tmp=false;}
+
             var tile = new WorldTile
             {
                 LocalPlace = localPlace,
                 WorldLocation = grid.GetCellCenterWorld(localPlace),
                 TileBase = Tilemap.GetTile(localPlace),
                 TilemapMember = Tilemap,
+				Constructible = tmp,
                 Name = localPlace.x + "," + localPlace.y,
                 Cost = -1 // TODO: Change this with the proper cost from ruletile
             };
