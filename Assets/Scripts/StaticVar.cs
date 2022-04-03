@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class StaticVar : MonoBehaviour{
+public class StaticVar : MonoBehaviour
+{
     public static bool Lose = false;
     public static bool gameIsPaused = false;
     public static Text RessourceText;
@@ -15,20 +16,26 @@ public class StaticVar : MonoBehaviour{
     public static float TimeStop { get; set; }
     public static Hashtable KiaList = new Hashtable();
 
-    public static int EnemiesKIA {
-        get {
+    public static int EnemiesKIA
+    {
+        get
+        {
             return _enemieskia;
         }
-        set {
+        set
+        {
             _enemieskia += value;
         }
     }
     private static float _ressource;
-    public static float Ressource {
-        get {
+    public static float Ressource
+    {
+        get
+        {
             return _ressource;
         }
-        set {
+        set
+        {
             _ressource += value;
             StaticVar.RessourceText.text = "Ressources : " + Mathf.FloorToInt(_ressource);
         }
@@ -38,14 +45,15 @@ public class StaticVar : MonoBehaviour{
 
     public static float SetVolume(float Volumetoset) { Volume = Volumetoset; return Volume; }
 
-    public void Reset() {
-        _enemieskia=0;
-        _ressource=0;
-        TimeStart=Time.time;
-        Time.timeScale=1;
-        Tower=0;
-        Lose=false;
-        gameIsPaused=false;
+    public void Reset()
+    {
+        _enemieskia = 0;
+        _ressource = 0;
+        TimeStart = Time.time;
+        Time.timeScale = 1;
+        Tower = 0;
+        Lose = false;
+        gameIsPaused = false;
         KiaList.Clear();
         SceneManager.LoadScene("Main", LoadSceneMode.Single);
     }

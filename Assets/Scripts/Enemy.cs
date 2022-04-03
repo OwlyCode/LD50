@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    const float MOVE_SPEED = 0.5f;
+    const float MOVE_SPEED = 0.5f * 20f;
 
     bool walking = false;
     List<Vector3> path;
@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
         Debug.Log(gameObject.name);
         StaticVar.EnemiesKIA = 1;
         StaticVar.Ressource = 0.3f / Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA, -1)) + 5);
-        Debug.Log("Ennemies value : " + 0.5f/Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA,-1))+5));
+        Debug.Log("Ennemies value : " + 0.5f / Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA, -1)) + 5));
         Debug.Log(StaticVar.Ressource);
         if (StaticVar.KiaList.Contains(gameObject.name))
         {
@@ -85,9 +85,9 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            StaticVar.KiaList.Add(gameObject.name,1);
+            StaticVar.KiaList.Add(gameObject.name, 1);
         }
-        
+
         Destroy(gameObject);
         if (Random.Range(0, 100) > 80)
         {
