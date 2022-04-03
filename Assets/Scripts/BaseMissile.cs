@@ -31,7 +31,7 @@ public class BaseMissile : MonoBehaviour
             if (Vector3.Distance(transform.position, lastKnownPosition) < 0.05f)
             {
                 Destroy(gameObject);
-                target.BroadcastMessage("onDeath");
+                target.BroadcastMessage("onHit");
             }
         }
         else

@@ -19,6 +19,10 @@ public class Enemy : MonoBehaviour
     public GameObject unicorn;
     public GameObject explosion;
 
+    public int health = 1;
+
+    public int damages = 3;
+
     void Start()
     {
         offset = new Vector3(Random.Range(-offsetShakiness, offsetShakiness), Random.Range(-offsetShakiness, offsetShakiness), 0);
@@ -56,13 +60,20 @@ public class Enemy : MonoBehaviour
 
         if (walking && path.Count == 0)
         {
-            GameObject.Find("/Map").BroadcastMessage("DestroyDreamland", 3);
+            GameObject.Find("/Map").BroadcastMessage("DestroyDreamland", damages);
             Destroy(gameObject);
         }
     }
 
-    void onDeath()
+    void onHit()
     {
+        if (health > 1)
+        {
+            health--;
+
+            return;
+        }
+
         StaticVar.EnemiesKIA = 1;
         StaticVar.Ressource = 1f; /// Modifier la vazleur par Ennemi.value si on fait differents types d'ennemis.
         StaticVar.Ressource = 0.5f / Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA, -1)) + 5);

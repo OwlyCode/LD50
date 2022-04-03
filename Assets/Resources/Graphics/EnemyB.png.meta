@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: efbae4bc1e5b27a42b551e642246392b
+guid: 69de97aea10f74b49adf3c53a30fbe9f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7482177786666212508
-    second: Monster_0
+      213: 1764527668196454919
+    second: EnemyB_0
   - first:
-      213: -7783437513647718680
-    second: Monster_1
+      213: 4939859758995839491
+    second: EnemyB_1
   - first:
-      213: -724056971925584315
-    second: Monster_2
+      213: -4717904868969351930
+    second: EnemyB_2
   - first:
-      213: -233947400402218603
-    second: Monster_3
+      213: -5466532798797530909
+    second: EnemyB_3
   - first:
-      213: 5538744878310211288
-    second: Monster_4
+      213: 7450987328128072434
+    second: EnemyB_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -59,8 +59,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.51526254, y: 0.07029479}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -83,7 +83,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,7 +95,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,7 +107,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -118,7 +118,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Monster_0
+      name: EnemyB_0
       rect:
         serializedVersion: 2
         x: 1
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 463217ff1f6f92890800000000000000
-      internalID: -7482177786666212508
+      spriteID: 702b23bb09cdc7810800000000000000
+      internalID: 1764527668196454919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_1
+      name: EnemyB_1
       rect:
         serializedVersion: 2
         x: 41
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8eef39bd1dcabf390800000000000000
-      internalID: -7783437513647718680
+      spriteID: 30a913f3748ed8440800000000000000
+      internalID: 4939859758995839491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_2
+      name: EnemyB_2
       rect:
         serializedVersion: 2
         x: 84
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5460b3f2502a3f5f0800000000000000
-      internalID: -724056971925584315
+      spriteID: 605fef8a482a68eb0800000000000000
+      internalID: -4717904868969351930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_3
+      name: EnemyB_3
       rect:
         serializedVersion: 2
         x: 125
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59156ee241ad0ccf0800000000000000
-      internalID: -233947400402218603
+      spriteID: 3e8b6a6e169f224b0800000000000000
+      internalID: -5466532798797530909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_4
+      name: EnemyB_4
       rect:
         serializedVersion: 2
         x: 166
@@ -216,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8deb13d0f139ddc40800000000000000
-      internalID: 5538744878310211288
+      spriteID: 2fab2077f79376760800000000000000
+      internalID: 7450987328128072434
       vertices: []
       indices: 
       edges: []

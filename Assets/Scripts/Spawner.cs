@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject enemy;
+    public GameObject enemyB;
 
     private float spawnRate = 0.25f;
 
@@ -22,7 +23,14 @@ public class Spawner : MonoBehaviour
         if (spawnDelay < 0f && tileData.path.Count > 0)
         {
             spawnDelay = spawnRate;
-            Instantiate(enemy, tileData.path[0], Quaternion.identity);
+            if (Random.Range(0, 100) > 90)
+            {
+                Instantiate(enemyB, tileData.path[0], Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(enemy, tileData.path[0], Quaternion.identity);
+            }
         }
 
         spawnDelay -= Time.deltaTime;
