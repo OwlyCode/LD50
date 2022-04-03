@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject enemy;
-    public GameObject enemyB;
+    public Dictionary<GameObject, int> Ennemies;
+    public List<GameObject> EnnemiesGO;
 
     private float spawnRate = 0.25f;
 
@@ -22,14 +22,17 @@ public class Spawner : MonoBehaviour
     {
         if (spawnDelay < 0f && tileData.path.Count > 0)
         {
+            GameObject tmp;
             spawnDelay = spawnRate;
             if (Random.Range(0, 100) > 90)
             {
-                Instantiate(enemyB, tileData.path[0], Quaternion.identity);
+                tmp = Instantiate(EnnemiesGO[1], tileData.path[0], Quaternion.identity);
+                tmp.name = "Nightmare";
             }
             else
             {
-                Instantiate(enemy, tileData.path[0], Quaternion.identity);
+                tmp = Instantiate(EnnemiesGO[0], tileData.path[0], Quaternion.identity);
+                tmp.name = "Bad dream";
             }
         }
 

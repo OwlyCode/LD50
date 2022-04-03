@@ -17,6 +17,25 @@ public class UIManager : MonoBehaviour {
 
     }
 
+    void setScore() 
+    {
+        Debug.Log("In Set Score");
+        Debug.Log(StaticVar.KiaList);
+        GameObject.Find("Score").GetComponent<Text>().text = "ScoreBoard :\n\n";
+        Debug.Log(StaticVar.KiaList);
+        if (StaticVar.KiaList.Count!=0) {
+        foreach (DictionaryEntry entry in StaticVar.KiaList) {
+            GameObject.Find("Score").GetComponent<Text>().text += (string)entry.Key + "   :   "+entry.Value+ "\n";
+            }
+        }
+        else {
+            GameObject.Find("Score").GetComponent<Text>().text += "How did you manage to hit no monsters ?\n";
+            GameObject.Find("Score").GetComponent<Text>().text += "Try to click on grass to construct towers next time !\n";
+        }
+
+
+    }
+
     void Manager(string value) {
         if (value == "Main") {
             // Do Main Thingies;
@@ -54,9 +73,11 @@ public class UIManager : MonoBehaviour {
                 ((CanvasGroup)UIList["Obj"]).alpha = 0;
             }
         }
-        if (value == "Win" || value == "Lose") {
+        if (value == "Lose") {
+            setScore();
             StaticVar.gameIsPaused = true;
             PauseUnpause();
+            //StaticVar.Reset();
             foreach (DictionaryEntry entry in UIList) {
                 if ((string)entry.Key == value) {
                     ((CanvasGroup)entry.Value).alpha = 1;

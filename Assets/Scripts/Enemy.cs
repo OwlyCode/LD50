@@ -73,15 +73,27 @@ public class Enemy : MonoBehaviour
 
             return;
         }
-
+        // Else "on Death"
+        Debug.Log(gameObject.name);
         StaticVar.EnemiesKIA = 1;
-        StaticVar.Ressource = 1f; /// Modifier la vazleur par Ennemi.value si on fait differents types d'ennemis.
-        StaticVar.Ressource = 0.5f / Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA, -1)) + 5);
-        //Debug.Log("Ennemies value : " + 0.5f/Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA,-1))+5));
+        StaticVar.Ressource = 0.3f / Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA, -1)) + 5);
+        Debug.Log("Ennemies value : " + 0.5f/Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA,-1))+5));
+        Debug.Log(StaticVar.Ressource);
+        if (StaticVar.KiaList.Contains(gameObject.name))
+        {
+            StaticVar.KiaList[gameObject.name] = (int)StaticVar.KiaList[gameObject.name] + 1;
+        }
+        else
+        {
+            StaticVar.KiaList.Add(gameObject.name,1);
+        }
+        
         Destroy(gameObject);
         if (Random.Range(0, 100) > 80)
         {
             Instantiate(unicorn, transform.position, Quaternion.identity);
+            StaticVar.Ressource = 1;
+
         }
         Instantiate(explosion, transform.position, Quaternion.identity);
     }
