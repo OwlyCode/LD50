@@ -12,6 +12,8 @@ public class BaseTower : MonoBehaviour
 
     private float cooldown = FIRE_COOLDOWN;
 
+    private GameObject target;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,18 +25,27 @@ public class BaseTower : MonoBehaviour
     {
         if (cooldown < 0)
         {
-            var t = pickTarget();
-
-            if (t != null)
+            target = pickTarget();
+            if (target != null)
             {
-                cooldown = FIRE_COOLDOWN;
-                var p = Instantiate(projectilePrefab);
-                p.transform.position = transform.Find("Emitter").transform.position; // transform.position;
-                p.GetComponent<BaseMissile>().SetTarget(t);
+                GetComponent<Animator>().SetTrigger("Fire");
             }
         }
 
         cooldown -= Time.deltaTime;
+    }
+
+
+    void DoFire()
+    {
+        if (target != null)
+        {
+            cooldown = FIRE_COOLDOWN;
+            var p = Instantiate(projectilePrefab);
+            p.transform.position = transform.Find("Emitter").transform.position; // transform.position;
+            p.GetComponent<BaseMissile>().SetTarget(target);
+            GetComponent<Animator>().ResetTrigger("Fire");
+        }
     }
 
     GameObject pickTarget()
