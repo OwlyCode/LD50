@@ -40,6 +40,7 @@ public class BaseTower : MonoBehaviour
     {
         if (target != null)
         {
+            GetComponent<AudioSource>().Play();
             cooldown = FIRE_COOLDOWN;
             var p = Instantiate(projectilePrefab);
             p.transform.position = transform.Find("Emitter").transform.position; // transform.position;
