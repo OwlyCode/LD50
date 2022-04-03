@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
+  m_Script: {fileID: 11500000, guid: cc610700737c36048b675ccbb899d203, type: 3}
   m_Name: tentacle
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: 2a0ab8692076fab46b2f05a5a3df5f11, type: 3}
@@ -31,6 +31,6 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 0}
+  m_InstancedGameObject: {fileID: 2286462970980992870, guid: 5ae5d031af13d1b4fbfeb4283bf8ae48, type: 3}
   m_Flags: 1
   m_ColliderType: 1

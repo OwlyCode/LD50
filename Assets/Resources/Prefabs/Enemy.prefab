@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4889583194428930844}
   - component: {fileID: 3151010776622795176}
   - component: {fileID: 5842666185854693333}
+  - component: {fileID: 1288711272939483842}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -102,6 +103,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1288711272939483842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3088157412139686325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14100d12c47c234bbd054fad0b3f735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5115488213526072103
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,3 +200,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unicorn: {fileID: 3036955572510385555, guid: fc589a82325b9a848a81ae4716722522, type: 3}
   explosion: {fileID: 1082425321016455143, guid: 36a9e84f16db26e428f788f7614f3086, type: 3}
+  health: 1
+  damages: 3
