@@ -198,9 +198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47daff551b5944840a1646c6cc90d372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unicorn: {fileID: 3036955572510385555, guid: fc589a82325b9a848a81ae4716722522, type: 3}
+  unicorn: {fileID: 254973357732813244, guid: 1f50c3831a5b0ba43ab5bf22cfff0b39, type: 3}
   explosion: {fileID: 1082425321016455143, guid: 36a9e84f16db26e428f788f7614f3086, type: 3}
   health: 2
   damages: 3
   unicornProbability: 70
   unicornAmount: 1
+  unicornValue: 1

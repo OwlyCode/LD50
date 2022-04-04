@@ -80,6 +80,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9029317552003574049, guid: e89275d7f6b2b884b87589ea37b8d4f5, type: 3}
+      propertyPath: unicorn
+      value: 
+      objectReference: {fileID: 254973357732813244, guid: 1f50c3831a5b0ba43ab5bf22cfff0b39, type: 3}
+    - target: {fileID: 9029317552003574049, guid: e89275d7f6b2b884b87589ea37b8d4f5, type: 3}
       propertyPath: unicornValue
       value: 3
       objectReference: {fileID: 0}

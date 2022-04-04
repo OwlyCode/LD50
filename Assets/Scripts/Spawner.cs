@@ -59,10 +59,11 @@ public class Spawner : MonoBehaviour
                 {
                     prefab = EnnemiesGO[0],
                     count = 3,
-                    delay = 0.25f
+                    delay = 0.25f,
+                    name = "Bad dream"
                 }
             },
-            delay = 5f
+            delay = 15f
         });
 
         spawnSequences.Add(new SpawnSequence()
@@ -84,7 +85,22 @@ public class Spawner : MonoBehaviour
                     name = "Nightmare"
                 }
             },
-            delay = 5f
+            delay = 15f
+        });
+
+        spawnSequences.Add(new SpawnSequence()
+        {
+            spawnGroups = new List<SpawnGroup>()
+            {
+                new SpawnGroup()
+                {
+                    prefab = EnnemiesGO[2],
+                    count = 1,
+                    delay = 3f,
+                    name = "Squid"
+                }
+            },
+            delay = 15f
         });
     }
 

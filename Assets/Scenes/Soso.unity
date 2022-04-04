@@ -2534,6 +2534,7 @@ MonoBehaviour:
   EnnemiesGO:
   - {fileID: 5115488213526072103, guid: e89275d7f6b2b884b87589ea37b8d4f5, type: 3}
   - {fileID: 3274986906179492516, guid: 7f6bcc81b5468b744abc4883a59100dd, type: 3}
+  - {fileID: 2875378058147596079, guid: 195b9df92eef61845992e576c954be30, type: 3}
 --- !u!4 &883009009
 Transform:
   m_ObjectHideFlags: 0

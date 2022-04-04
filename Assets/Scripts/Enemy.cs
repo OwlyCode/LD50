@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    const float MOVE_SPEED = 0.5f;
-
     bool walking = false;
     List<Vector3> path;
     Vector3 currentTarget;
@@ -30,6 +28,8 @@ public class Enemy : MonoBehaviour
     public int unicornAmount = 1;
 
     public int unicornValue = 1;
+
+    public float movespeed = 0.5f;
 
     void Start()
     {
@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, currentTarget, Time.deltaTime * MOVE_SPEED);
+                transform.position = Vector3.MoveTowards(transform.position, currentTarget, Time.deltaTime * movespeed);
             }
         }
 
@@ -106,23 +106,12 @@ public class Enemy : MonoBehaviour
 
         if (Random.Range(0, 100) > unicornProbability)
         {
-            StartCoroutine(SpawnUnicorns());
-            //Instantiate(unicorn, transform.position, Quaternion.identity);
-        }
-        GetComponentInChildren<SpriteRenderer>().enabled = false;
-        Instantiate(explosion, transform.position, Quaternion.identity);
-    }
-
-    IEnumerator SpawnUnicorns()
-    {
-        Debug.Log("Spawning unicorns");
-        for (int i = 0; i < unicornAmount; i++)
-        {
-            Debug.Log("+++" + unicornAmount);
             var uni = Instantiate(unicorn, transform.position, Quaternion.identity);
-            uni.GetComponent<Unicorn>().value = unicornValue;
-            yield return new WaitForSeconds(0.2f);
+            uni.GetComponent<UnicornSpawner>().unicornValue = unicornValue;
+            uni.GetComponent<UnicornSpawner>().unicornAmount = unicornAmount;
+
         }
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
