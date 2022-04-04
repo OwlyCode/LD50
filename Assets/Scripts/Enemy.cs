@@ -89,7 +89,7 @@ public class Enemy : MonoBehaviour
         }
 
         Destroy(gameObject);
-        if (Random.Range(0, 100) > 80)
+        if (Random.Range(0, 100) > 30)
         {
             Instantiate(unicorn, transform.position, Quaternion.identity);
             StaticVar.Ressource = 1;
