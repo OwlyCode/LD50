@@ -54,6 +54,16 @@ public class StaticVar : MonoBehaviour
         {
             _ressource += value;
             StaticVar.RessourceText.text = "" + Mathf.FloorToInt(_ressource);
+
+            if (StaticVar.mouseMode == MouseMode.BuildBear)
+            {
+                Tooltip.RefreshBear();
+            }
+
+            if (StaticVar.mouseMode == MouseMode.BuildHeart)
+            {
+                Tooltip.RefreshHeart();
+            }
         }
     }
 
