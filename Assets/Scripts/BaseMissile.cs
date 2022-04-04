@@ -27,6 +27,8 @@ public class BaseMissile : MonoBehaviour
 
         if (target != null)
         {
+            GetComponent<DepthFixer>().offset = transform.position.y - target.transform.position.y;
+
             lastKnownPosition = target.transform.position;
             if (Vector3.Distance(transform.position, lastKnownPosition) < 0.05f)
             {
