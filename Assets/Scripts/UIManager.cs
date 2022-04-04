@@ -23,14 +23,15 @@ public class UIManager : MonoBehaviour
         if (StaticVar.TimeStop == 0) { StaticVar.TimeStop = Time.time; }
         Debug.Log("In Set Score");
         //Debug.Log(StaticVar.KiaList);
-        GameObject.Find("Score").GetComponent<Text>().text = "ScoreBoard :\n\n";
+        GameObject.Find("Score").GetComponent<Text>().text = "ScoreBoard:\n\n";
 
         TimeSpan timeSpan = TimeSpan.FromSeconds(StaticVar.TimeStop - StaticVar.TimeStart);
 
-        GameObject.Find("Score").GetComponent<Text>().text += "Time Dreamed :" + string.Format("{0:D2}:{1:D2}:{2:D2}", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds) + "\n\n";
+        GameObject.Find("Score").GetComponent<Text>().text += "Time Dreamed:" + string.Format("{0:D2}:{1:D2}:{2:D2}", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds) + "\n\n";
         //Debug.Log(StaticVar.KiaList);
         if (StaticVar.KiaList.Count != 0)
         {
+            GameObject.Find("Score").GetComponent<Text>().text += "Monsters that were eliminated:\n";
             foreach (DictionaryEntry entry in StaticVar.KiaList)
             {
                 GameObject.Find("Score").GetComponent<Text>().text += (string)entry.Key + "   :   " + entry.Value + "\n";
@@ -38,8 +39,8 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            GameObject.Find("Score").GetComponent<Text>().text += "How did you manage to hit no monsters ?\n";
-            GameObject.Find("Score").GetComponent<Text>().text += "Try to click on grass to construct towers next time !\n";
+            GameObject.Find("Score").GetComponent<Text>().text += "How did you manage to hit no monsters?\n";
+            GameObject.Find("Score").GetComponent<Text>().text += "Try to click on grass to construct towers next time!\n";
         }
     }
 
@@ -58,7 +59,9 @@ public class UIManager : MonoBehaviour
                 ((CanvasGroup)UIList["Pause"]).alpha = 0;
                 ((CanvasGroup)UIList["Main"]).alpha = 1;
 
-            } else {                                            // Pausing Game
+            }
+            else
+            {                                            // Pausing Game
                 GameObject.Find("VolumeSlider").GetComponent<Slider>().value = StaticVar.Getvolume();
 
                 StaticVar.gameIsPaused = true;

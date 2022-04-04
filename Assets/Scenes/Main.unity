@@ -654,11 +654,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70988981}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1218.0818, y: -407.42395, z: 63.373222}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 101675669}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &87170820
 GameObject:
@@ -763,8 +763,8 @@ Transform:
   m_LocalPosition: {x: 1219.4719, y: 407.60953, z: -67.24462}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 70988983}
   - {fileID: 217470560}
+  - {fileID: 70988983}
   - {fileID: 649481109}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1246,11 +1246,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217470558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1218.0818, y: -407.42395, z: 63.373222}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 101675669}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &228890074
 GameObject:
@@ -1659,7 +1659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tilemap: {fileID: 957863188}
   grid: {fileID: 1378385}
-  tileExplosion: {fileID: 1082425321016455143, guid: 36a9e84f16db26e428f788f7614f3086, type: 3}
+  tileExplosion: {fileID: 3159376777049030780, guid: 4ceb852e9dcf53f4cb7a2b3f3035401b, type: 3}
   nightmareTiles:
   - {fileID: 11400000, guid: 801531c78aa4bd04f82c3cd99e969cf3, type: 2}
   - {fileID: 11400000, guid: 302509bf0ac2cbc458c7d81ea8fff149, type: 2}
@@ -1687,7 +1687,7 @@ MonoBehaviour:
   bearPlaceholder: {fileID: 4807939406627069200, guid: 1ecf53b8f55f0ec409a842d127bfc2a3, type: 3}
   bearBuildingSprite: {fileID: 21300000, guid: e24e5b9bb40ec2745980d50c3d390ac8, type: 3}
   heartBuildingSprite: {fileID: 21300000, guid: 787e0771fe908ca488f1f463bc72fa3a, type: 3}
-  upgradeSprite: {fileID: 21300000, guid: 8b2503994d465e445a5e132b6f7986f0, type: 3}
+  upgradeSprite: {fileID: 21300000, guid: a2abb85e1cdd1734394db5e5cce848b7, type: 3}
 --- !u!114 &472096933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2227,7 +2227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649481107}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1218.0818, y: -407.42395, z: 63.373222}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 101675669}
@@ -2460,7 +2460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -47.013, y: -14.089}
+  m_AnchoredPosition: {x: -33.6, y: -16.8}
   m_SizeDelta: {x: 310.7628, y: 28.1771}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &817977021
@@ -2500,7 +2500,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -8551,7 +8551,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -47.013405, y: 17.4}
+  m_AnchoredPosition: {x: -33.60038, y: 16.689}
   m_SizeDelta: {x: 310.7628, y: 28.1771}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1113750326
@@ -8984,6 +8984,7 @@ GameObject:
   - component: {fileID: 1703328742}
   - component: {fileID: 1703328741}
   - component: {fileID: 1703328743}
+  - component: {fileID: 1703328744}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9066,6 +9067,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 771401d2ede6fc94690daf7b733353fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1703328744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703328739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5894bef1027b8364d8e0b744876fc23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1780855250
