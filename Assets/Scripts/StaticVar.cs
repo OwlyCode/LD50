@@ -4,20 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public enum MouseMode
-{
+public enum MouseMode {
     None,
     BuildBear,
     Upgrade
 }
 
-public class StaticVar : MonoBehaviour
-{
+public class StaticVar : MonoBehaviour {
     public static MouseMode mouseMode = MouseMode.None;
     public static bool Lose = false;
     public static bool gameIsPaused = false;
     public static Text RessourceText;
-    public static float Volume { get; private set; }
+    public static float Volume { get; set; }
     private static int _enemieskia;
     public static int Tower { get; set; }
     public static float TimeStart { get; set; }
@@ -28,26 +26,20 @@ public class StaticVar : MonoBehaviour
     public static int bearCost = 1;
     public static int[] upgradeBearCosts = new int[] { 16, 32, 64 };
 
-    public static int EnemiesKIA
-    {
-        get
-        {
+    public static int EnemiesKIA {
+        get {
             return _enemieskia;
         }
-        set
-        {
+        set {
             _enemieskia += value;
         }
     }
     private static float _ressource;
-    public static float Ressource
-    {
-        get
-        {
+    public static float Ressource {
+        get {
             return _ressource;
         }
-        set
-        {
+        set {
             _ressource += value;
             StaticVar.RessourceText.text = "" + Mathf.FloorToInt(_ressource);
         }
@@ -55,18 +47,17 @@ public class StaticVar : MonoBehaviour
 
     public static float Getvolume() { return Volume; }
 
-    public static float SetVolume(float Volumetoset)
-    {
+    public static float SetVolume(float Volumetoset) {
         Volume = Volumetoset;
-        foreach (Transform child in Sound.transform)
-        {
-            child.GetComponent<AudioSource>().volume = StaticVar.Volume;
+        if (Sound) {
+            foreach (Transform child in Sound.transform) {
+                child.GetComponent<AudioSource>().volume = StaticVar.Volume;
+            }
         }
         return Volume;
     }
 
-    public void Reset()
-    {
+    public void Reset() {
         bearCost = 1;
         _enemieskia = 0;
         _ressource = 0;
