@@ -202,3 +202,5 @@ MonoBehaviour:
   explosion: {fileID: 1082425321016455143, guid: 36a9e84f16db26e428f788f7614f3086, type: 3}
   health: 2
   damages: 3
+  unicornProbability: 70
+  unicornAmount: 1

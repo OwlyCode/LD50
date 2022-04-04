@@ -25,6 +25,12 @@ public class Enemy : MonoBehaviour
 
     public int damages = 3;
 
+    public int unicornProbability = 90;
+
+    public int unicornAmount = 1;
+
+    public int unicornValue = 1;
+
     void Start()
     {
         offset = new Vector3(Random.Range(0, offsetShakiness), Random.Range(0, offsetShakiness), 0);
@@ -98,12 +104,25 @@ public class Enemy : MonoBehaviour
             StaticVar.KiaList.Add(gameObject.name, 1);
         }
 
-        Destroy(gameObject);
-        if (Random.Range(0, 100) > 80)
+        if (Random.Range(0, 100) > unicornProbability)
         {
-            Instantiate(unicorn, transform.position, Quaternion.identity);
-
+            StartCoroutine(SpawnUnicorns());
+            //Instantiate(unicorn, transform.position, Quaternion.identity);
         }
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
         Instantiate(explosion, transform.position, Quaternion.identity);
+    }
+
+    IEnumerator SpawnUnicorns()
+    {
+        Debug.Log("Spawning unicorns");
+        for (int i = 0; i < unicornAmount; i++)
+        {
+            Debug.Log("+++" + unicornAmount);
+            var uni = Instantiate(unicorn, transform.position, Quaternion.identity);
+            uni.GetComponent<Unicorn>().value = unicornValue;
+            yield return new WaitForSeconds(0.2f);
+        }
+        Destroy(gameObject);
     }
 }

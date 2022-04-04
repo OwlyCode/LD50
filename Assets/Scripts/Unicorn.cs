@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Unicorn : MonoBehaviour
 {
+    public int value = 1;
     void Update()
     {
         Vector3 target = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
@@ -17,7 +18,7 @@ public class Unicorn : MonoBehaviour
 
         if (transform.position == target)
         {
-            StaticVar.Ressource = 1;
+            StaticVar.Ressource = this.value;
             Destroy(gameObject);
         }
     }

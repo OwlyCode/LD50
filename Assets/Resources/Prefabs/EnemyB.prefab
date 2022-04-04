@@ -79,6 +79,18 @@ PrefabInstance:
       propertyPath: damages
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 9029317552003574049, guid: e89275d7f6b2b884b87589ea37b8d4f5, type: 3}
+      propertyPath: unicornValue
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029317552003574049, guid: e89275d7f6b2b884b87589ea37b8d4f5, type: 3}
+      propertyPath: unicornAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029317552003574049, guid: e89275d7f6b2b884b87589ea37b8d4f5, type: 3}
+      propertyPath: unicornProbability
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e89275d7f6b2b884b87589ea37b8d4f5, type: 3}
 --- !u!1 &4707841187637774390 stripped
