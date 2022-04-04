@@ -13,6 +13,8 @@ public class BaseTower : MonoBehaviour
 
     private float cooldown = 0;
 
+    private int spawnAmount = 1;
+
     private GameObject target;
 
     public int towerLevel = 0;
@@ -46,10 +48,24 @@ public class BaseTower : MonoBehaviour
         {
             GetComponent<AudioSource>().Play();
             cooldown = fireCoolDown;
-            var p = Instantiate(projectilePrefab);
-            p.transform.position = transform.Find("Emitter").transform.position; // transform.position;
-            p.GetComponent<BaseMissile>().SetTarget(target);
-            GetComponent<Animator>().ResetTrigger("Fire");
+
+            StartCoroutine(FireRepeat());
+        }
+    }
+
+    IEnumerator FireRepeat()
+    {
+        for (int cpt = 0; cpt < spawnAmount; cpt++)
+        {
+            if (target != null)
+            {
+                var p = Instantiate(projectilePrefab);
+                p.transform.position = transform.Find("Emitter").transform.position; // transform.position;
+                p.GetComponent<BaseMissile>().SetTarget(target);
+                GetComponent<Animator>().ResetTrigger("Fire");
+                yield return new WaitForSeconds(0.15f);
+            }
+            target = pickTarget();
         }
     }
 
@@ -90,6 +106,8 @@ public class BaseTower : MonoBehaviour
             towerLevel++;
             GetComponent<Animator>().SetInteger("level", towerLevel);
 
+            // TODO BALANCING
+            spawnAmount++;
             fireCoolDown = fireCoolDown / 2f;
         }
     }
