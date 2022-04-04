@@ -11,7 +11,7 @@ public class BaseTower : MonoBehaviour
 
     private List<GameObject> targets;
 
-    private float cooldown = 0;
+    public float cooldown = 0;
 
     private int spawnAmount = 1;
 

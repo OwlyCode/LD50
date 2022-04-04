@@ -13,4 +13,8 @@ public class BuildMenu : MonoBehaviour
     {
         StaticVar.mouseMode = MouseMode.Upgrade;
     }
+    public void setBuildHeart()
+    {
+        StaticVar.mouseMode = MouseMode.BuildHeart;
+    }
 }

@@ -30,6 +30,11 @@ public class Tooltip : MonoBehaviour
         Show("Build Teddy Bear", StaticVar.bearCost);
     }
 
+    public void ShowHeart()
+    {
+        Show("Build Heart", StaticVar.heartCost);
+    }
+
     public static void RefreshBear()
     {
 
@@ -38,6 +43,16 @@ public class Tooltip : MonoBehaviour
             _instance.ShowBear();
         }
     }
+
+    public static void RefreshHeart()
+    {
+
+        if (_instance)
+        {
+            _instance.ShowHeart();
+        }
+    }
+
 
     public void ShowBlankUpgrade()
     {

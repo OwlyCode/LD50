@@ -24,7 +24,6 @@ public class UnicornSpawner : MonoBehaviour
     {
         for (int i = 0; i < unicornAmount; i++)
         {
-            Debug.Log("+++" + unicornAmount);
             var uni = Instantiate(unicorn, transform.position, Quaternion.identity);
             uni.GetComponent<Unicorn>().value = unicornValue;
             yield return new WaitForSeconds(0.2f);

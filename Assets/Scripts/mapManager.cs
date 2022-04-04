@@ -9,6 +9,9 @@ public class mapManager : MonoBehaviour
     private WorldTile _tile;
     public Grid grid;
     public TileBase tower;
+
+    public TileBase heartTower;
+
     public Text RessourceText;
 
     public GameObject bearPlaceholder;
@@ -16,6 +19,7 @@ public class mapManager : MonoBehaviour
     private GameObject placeholderInstance;
 
     public Sprite bearBuildingSprite;
+    public Sprite heartBuildingSprite;
 
     public Sprite upgradeSprite;
 
@@ -53,6 +57,19 @@ public class mapManager : MonoBehaviour
                     placeholderInstance.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.33f);
                 }
             }
+            else if (StaticVar.mouseMode == MouseMode.BuildHeart)
+            {
+                placeholderInstance.GetComponentInChildren<SpriteRenderer>().sprite = heartBuildingSprite;
+
+                if (StaticVar.Ressource >= StaticVar.bearCost && foundTile && _tile.Constructible)
+                {
+                    placeholderInstance.GetComponentInChildren<SpriteRenderer>().color = new Color(0, 1, 0, 0.33f);
+                }
+                else
+                {
+                    placeholderInstance.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.33f);
+                }
+            }
             else
             {
                 placeholderInstance.GetComponentInChildren<SpriteRenderer>().sprite = upgradeSprite;
@@ -65,6 +82,13 @@ public class mapManager : MonoBehaviour
                     {
                         var tower = go.GetComponent<BaseTower>();
                         if (tower != null && tower.canUpgrade())
+                        {
+                            placeholderInstance.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+                            success = true;
+                        }
+
+                        var tower2 = go.GetComponent<HeartTower>();
+                        if (tower2 != null && tower2.canUpgrade())
                         {
                             placeholderInstance.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
                             success = true;
@@ -93,9 +117,6 @@ public class mapManager : MonoBehaviour
 
             if (tiles.TryGetValue(worldPoint, out _tile))
             {
-                /* print("Tile " + _tile.Name + " costs: " + _tile.Cost);
-                 _tile.TilemapMember.SetTileFlags(_tile.LocalPlace, TileFlags.None);
-                 _tile.TilemapMember.SetColor(_tile.LocalPlace, Color.red);*/
                 if (!StaticVar.gameIsPaused && _tile.Constructible && StaticVar.Ressource >= StaticVar.bearCost && StaticVar.mouseMode == MouseMode.BuildBear)
                 {
                     _tile.TilemapMember.SetTile(_tile.LocalPlace, tower);
@@ -104,6 +125,16 @@ public class mapManager : MonoBehaviour
                     StaticVar.Tower += 1;
                     _tile.Constructible = false;
                     Tooltip.RefreshBear();
+                }
+
+                if (!StaticVar.gameIsPaused && _tile.Constructible && StaticVar.Ressource >= StaticVar.heartCost && StaticVar.mouseMode == MouseMode.BuildHeart)
+                {
+                    _tile.TilemapMember.SetTile(_tile.LocalPlace, heartTower);
+                    StaticVar.Ressource = -StaticVar.heartCost;
+                    StaticVar.heartCost = StaticVar.heartCost * 2;
+                    StaticVar.Tower += 1;
+                    _tile.Constructible = false;
+                    Tooltip.RefreshHeart();
                 }
 
                 if (!StaticVar.gameIsPaused && StaticVar.mouseMode == MouseMode.Upgrade)
@@ -116,6 +147,12 @@ public class mapManager : MonoBehaviour
                         if (tower != null)
                         {
                             tower.UpgradeTower();
+                        }
+
+                        var tower2 = go.GetComponent<HeartTower>();
+                        if (tower2 != null)
+                        {
+                            tower2.UpgradeTower();
                         }
                     }
                 }
