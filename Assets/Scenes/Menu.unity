@@ -11544,10 +11544,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1842821418}
   m_HandleRect: {fileID: 396948647}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -11576,7 +11576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VolumeSlider: {fileID: 538605232}
-  Sound: {fileID: 1570970308}
   masterMixer: {fileID: 24100000, guid: 925339cd9594d44448fe35bf56075748, type: 2}
 --- !u!1 &546810787
 GameObject:

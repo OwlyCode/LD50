@@ -13,16 +13,15 @@ public class main : MonoBehaviour
     //private void Awake() => Init();
 
     public void Start(){
-        VolumeSlider.minValue = 0.0001f;
-        VolumeSlider.maxValue = 1f;
-
-
+        Debug.Log("VolumeMain"+StaticVar.Volume);
         VolumeSlider.value = StaticVar.Volume;
-        SetVolume(VolumeSlider.value);
+
+        //SetVolume(VolumeSlider.value);
     }
 
    public void SetVolume(float sliderValue)
     {
         masterMixer.SetFloat("MixerVolume",Mathf.Log10(sliderValue) * 20);
+        StaticVar.Volume = sliderValue;
     }
 }

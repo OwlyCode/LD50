@@ -15,16 +15,12 @@ public class MenuIntro : MonoBehaviour
         VolumeSlider.maxValue = 1f;
         VolumeSlider.value = 0.14f;
         StaticVar.SetVolume(VolumeSlider.value);
-
+Debug.Log("VolumeMenu"+StaticVar.Volume);
         SetVolume(VolumeSlider.value);
     }
    public void SetVolume(float sliderValue)
     {
         masterMixer.SetFloat("MixerVolume",Mathf.Log10(sliderValue) * 20);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        StaticVar.Volume = sliderValue;
     }
 }
