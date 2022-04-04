@@ -112,7 +112,6 @@ public class Spawner : MonoBehaviour
                     var go = Instantiate(group.prefab, tileData.path[0], Quaternion.identity);
                     currentSpawned++;
                     spawnDelay = group.delay;
-                    Debug.Log("SPAWN !");
                 }
             }
             else
@@ -120,12 +119,10 @@ public class Spawner : MonoBehaviour
                 currentSpawned = 0;
                 if (currentSpawnGroup < spawnSequences[currentSpawnSequence].spawnGroups.Count - 1)
                 {
-                    Debug.Log("NEXT GR");
                     currentSpawnGroup++;
                 }
                 else
                 {
-                    Debug.Log("NEXT SEQ");
                     spawnDelay = spawnSequences[currentSpawnSequence].delay;
                     currentSpawnGroup = 0;
 

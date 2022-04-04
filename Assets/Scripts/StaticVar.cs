@@ -4,8 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+public enum MouseMode
+{
+    None,
+    BuildBear,
+    Upgrade
+}
+
 public class StaticVar : MonoBehaviour
 {
+    public static MouseMode mouseMode = MouseMode.None;
     public static bool Lose = false;
     public static bool gameIsPaused = false;
     public static Text RessourceText;
@@ -15,6 +23,9 @@ public class StaticVar : MonoBehaviour
     public static float TimeStart { get; set; }
     public static float TimeStop { get; set; }
     public static Hashtable KiaList = new Hashtable();
+
+    public static int bearCost = 1;
+    public static int[] upgradeBearCosts = new int[] { 1, 4, 8 };
 
     public static int EnemiesKIA
     {
@@ -47,6 +58,7 @@ public class StaticVar : MonoBehaviour
 
     public void Reset()
     {
+        bearCost = 1;
         _enemieskia = 0;
         _ressource = 0;
         TimeStart = Time.time;
