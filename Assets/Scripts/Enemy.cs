@@ -61,6 +61,7 @@ public class Enemy : MonoBehaviour
         if (walking && path.Count == 0)
         {
             GameObject.Find("/Map").BroadcastMessage("DestroyDreamland", damages);
+            ScreenShaker.Shake(0.1f, 0.025f);
             Destroy(gameObject);
         }
     }

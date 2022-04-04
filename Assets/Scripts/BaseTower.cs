@@ -17,6 +17,8 @@ public class BaseTower : MonoBehaviour
 
     private GameObject target;
 
+    public AudioSource upgradeSound;
+
     public int towerLevel = 0;
 
     // Start is called before the first frame update
@@ -109,6 +111,7 @@ public class BaseTower : MonoBehaviour
 
         if (canUpgrade())
         {
+            upgradeSound.Play();
             StaticVar.Ressource = -cost;
             towerLevel++;
             GetComponent<Animator>().SetInteger("level", towerLevel);
