@@ -5,14 +5,12 @@ using UnityEngine.UI;
 
 public class main : MonoBehaviour
 {
-    private GameObject mapTile;
     public Slider VolumeSlider;
     public GameObject Sound;
     
     //private void Awake() => Init();
 
     public void Start(){
-        VolumeSlider.value = 0.014f; // TODO DELETE
         VolumeSlider.value = StaticVar.Volume;
         StaticVar.Sound = Sound;
         //StaticVar.SetVolume(StaticVar.Volume);

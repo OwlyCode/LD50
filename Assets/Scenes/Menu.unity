@@ -11387,7 +11387,6 @@ GameObject:
   - component: {fileID: 489275886}
   - component: {fileID: 489275885}
   - component: {fileID: 489275884}
-  - component: {fileID: 489275887}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11460,20 +11459,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &489275887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489275883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b3d835a9aaab348a3473757b7e365d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VolumeSlider: {fileID: 538605232}
-  Sound: {fileID: 1570970308}
 --- !u!1 &538605230
 GameObject:
   m_ObjectHideFlags: 0
@@ -11484,7 +11469,6 @@ GameObject:
   m_Component:
   - component: {fileID: 538605231}
   - component: {fileID: 538605232}
-  - component: {fileID: 538605234}
   - component: {fileID: 538605233}
   m_Layer: 5
   m_Name: VolumeSlider
@@ -11591,19 +11575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97afa8bf0453e7245b4fd7de96b4d2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &538605234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538605230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 248ff2fba645db34fbc30127ce1f71be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VolumeSlider: {fileID: 538605232}
 --- !u!1 &546810787
 GameObject:
   m_ObjectHideFlags: 0
@@ -12301,6 +12272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1570970309}
+  - component: {fileID: 1570970310}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -12323,6 +12295,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1570970310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570970308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248ff2fba645db34fbc30127ce1f71be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VolumeSlider: {fileID: 538605232}
+  Sound: {fileID: 1570970308}
 --- !u!1 &1617524467
 GameObject:
   m_ObjectHideFlags: 0

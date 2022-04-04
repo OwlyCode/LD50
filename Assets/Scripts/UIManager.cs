@@ -90,7 +90,6 @@ public class UIManager : MonoBehaviour
         if (!StaticVar.Lose)
         {
             if (Input.GetKeyDown(KeyCode.Escape)) Manager("Pause");
-            if (Input.GetKeyDown(KeyCode.F11)) Manager("Lose");
         }
         if (StaticVar.Lose) Manager("Lose");
     }
