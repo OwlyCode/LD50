@@ -11552,12 +11552,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 538605233}
-        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_TargetAssemblyTypeName: MenuIntro, Assembly-CSharp
         m_MethodName: SetVolume
-        m_Mode: 2
+        m_Mode: 0
         m_Arguments:
-          m_ObjectArgument: {fileID: 538605232}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11572,9 +11572,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 538605230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97afa8bf0453e7245b4fd7de96b4d2b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 248ff2fba645db34fbc30127ce1f71be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VolumeSlider: {fileID: 538605232}
+  Sound: {fileID: 1570970308}
+  masterMixer: {fileID: 24100000, guid: 925339cd9594d44448fe35bf56075748, type: 2}
 --- !u!1 &546810787
 GameObject:
   m_ObjectHideFlags: 0
@@ -11615,7 +11618,7 @@ AudioSource:
   m_GameObject: {fileID: 546810787}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 925339cd9594d44448fe35bf56075748, type: 2}
   m_audioClip: {fileID: 8300000, guid: e518c04ab0ed2ca458b400194acf5e93, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -12272,7 +12275,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1570970309}
-  - component: {fileID: 1570970310}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -12295,20 +12297,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1570970310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1570970308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 248ff2fba645db34fbc30127ce1f71be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VolumeSlider: {fileID: 538605232}
-  Sound: {fileID: 1570970308}
 --- !u!1 &1617524467
 GameObject:
   m_ObjectHideFlags: 0

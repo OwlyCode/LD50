@@ -72,13 +72,14 @@ public class StaticVar : MonoBehaviour
     public static float SetVolume(float Volumetoset)
     {
         Volume = Volumetoset;
+    /*    
         if (Sound)
         {
             foreach (Transform child in Sound.transform)
             {
                 child.GetComponent<AudioSource>().volume = StaticVar.Volume;
             }
-        }
+        }*/
         return Volume;
     }
 
