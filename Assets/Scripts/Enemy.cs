@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     List<Vector3> path;
     Vector3 currentTarget;
 
+    bool freeze = false;
+
     float offsetShakiness = 0.250f;
 
     float zOffset = 0f;
@@ -28,6 +30,15 @@ public class Enemy : MonoBehaviour
         offset = new Vector3(Random.Range(0, offsetShakiness), Random.Range(0, offsetShakiness), 0);
     }
 
+    IEnumerator BlinkRed()
+    {
+        GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        freeze = true;
+        yield return new WaitForSeconds(0.33f);
+        freeze = false;
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+    }
+
     void Update()
     {
         if (!walking && tileData.path.Count > 0)
@@ -38,7 +49,7 @@ public class Enemy : MonoBehaviour
             path.RemoveAt(0);
         }
 
-        if (walking)
+        if (walking && !freeze)
         {
             if (Vector3.Distance(transform.position, currentTarget) < 0.01f)
             {
@@ -71,6 +82,7 @@ public class Enemy : MonoBehaviour
         if (health > 1)
         {
             health--;
+            StartCoroutine(BlinkRed());
 
             return;
         }

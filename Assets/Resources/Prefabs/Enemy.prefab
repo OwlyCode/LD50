@@ -200,5 +200,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unicorn: {fileID: 3036955572510385555, guid: fc589a82325b9a848a81ae4716722522, type: 3}
   explosion: {fileID: 1082425321016455143, guid: 36a9e84f16db26e428f788f7614f3086, type: 3}
-  health: 1
+  health: 2
   damages: 3
