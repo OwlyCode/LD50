@@ -24,5 +24,6 @@ public class main : MonoBehaviour
    public void SetVolume(float sliderValue)
     {
         masterMixer.SetFloat("MixerVolume",Mathf.Log10(sliderValue) * 20);
+        StaticVar.Volume = sliderValue;
     }
 }
