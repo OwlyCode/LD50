@@ -20,10 +20,22 @@ public class tileData : MonoBehaviour
 
     private List<Vector3Int> dreamlandCells;
 
+    private int initialHealthyCells = 0;
+
     public static List<Vector3> path;
+
+    private AudioSource music;
+    private AudioSource badMusic;
+    private AudioSource breakSound;
+
+    bool brokeSound = false;
 
     private void Awake()
     {
+        music = GameObject.Find("/Music").GetComponent<AudioSource>();
+        badMusic = GameObject.Find("/BadMusic").GetComponent<AudioSource>();
+        breakSound = GameObject.Find("/BreakSound").GetComponent<AudioSource>();
+
         dreamlandCells = new List<Vector3Int>();
         path = new List<Vector3>();
 
@@ -68,6 +80,19 @@ public class tileData : MonoBehaviour
                 StaticVar.Lose = true;
             }
         }
+
+
+        if (!brokeSound && (float)dreamlandCells.Count / (float)initialHealthyCells < 0.95f)
+        {
+            music.volume = 0;
+            breakSound.Play();
+            badMusic.volume = 1;
+            badMusic.PlayDelayed(2.8f);
+            brokeSound = true;
+        }
+
+        // Maybe we add that back later with Max
+        // GameObject.Find("/Music").GetComponent<AudioSource>().pitch = Mathf.Lerp(0.8f, 1f, (float)dreamlandCells.Count / (float)initialHealthyCells);
     }
 
     // Use this for initialization
@@ -85,7 +110,6 @@ public class tileData : MonoBehaviour
             if (tmp)
             {
                 dreamlandCells.Add(localPlace);
-
             }
 
             var tile = new WorldTile
@@ -101,6 +125,8 @@ public class tileData : MonoBehaviour
 
             tiles.Add(tile.LocalPlace, tile);
         }
+
+        initialHealthyCells = dreamlandCells.Count;
     }
 
     private List<Vector3> computePath()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    const float MOVE_SPEED = 0.5f;
+    const float MOVE_SPEED = 0.5f * 30f;
 
     bool walking = false;
     List<Vector3> path;
