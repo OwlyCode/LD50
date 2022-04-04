@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
         if (value == "Lose")
         {
             setScore();
-            StaticVar.gameIsPaused = true;
+            StaticVar.Lose = StaticVar.gameIsPaused = true;
             PauseUnpause();
             //StaticVar.Reset();
             foreach (DictionaryEntry entry in UIList)

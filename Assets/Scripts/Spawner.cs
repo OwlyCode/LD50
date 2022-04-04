@@ -193,7 +193,8 @@ public class Spawner : MonoBehaviour
                 if (spawnDelay <= 0)
                 {
                     var go = Instantiate(group.prefab, tileData.path[0], Quaternion.identity);
-                    go.name = group.prefab.name;
+
+                    go.name = group.name;
                     var enemy = go.GetComponent<Enemy>();
 
                     enemy.health *= difficulty;

@@ -95,6 +95,7 @@ public class Enemy : MonoBehaviour
         // Else "on Death"
         StaticVar.EnemiesKIA = 1;
         // StaticVar.Ressource = 0.3f / Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA, -1)) + 5);
+        Debug.Log("Ennemy Game Object name : " + gameObject.name);
         if (StaticVar.KiaList.Contains(gameObject.name))
         {
             StaticVar.KiaList[gameObject.name] = (int)StaticVar.KiaList[gameObject.name] + 1;
