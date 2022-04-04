@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour {
+public class UIManager : MonoBehaviour
+{
     Hashtable UIList = new Hashtable();
     InputField InputField;
 
 
-    void Start() {
+    void Start()
+    {
         /* Here you all CanvasGroup goes to the main Hashtable */
         UIList.Add("Pause", GameObject.Find("Pause").GetComponent<CanvasGroup>());
         UIList.Add("Main", GameObject.Find("MainCanvas").GetComponent<CanvasGroup>());
@@ -17,41 +19,50 @@ public class UIManager : MonoBehaviour {
         UIList.Add("Lose", GameObject.Find("GameOver").GetComponent<CanvasGroup>());
     }
 
-    void setScore() 
+    void setScore()
     {
-        if (StaticVar.TimeStop==0) {StaticVar.TimeStop = Time.time;}
+        if (StaticVar.TimeStop == 0) { StaticVar.TimeStop = Time.time; }
         Debug.Log("In Set Score");
         //Debug.Log(StaticVar.KiaList);
         GameObject.Find("Score").GetComponent<Text>().text = "ScoreBoard :\n\n";
 
-        TimeSpan timeSpan =TimeSpan.FromSeconds(StaticVar.TimeStop - StaticVar.TimeStart);
+        TimeSpan timeSpan = TimeSpan.FromSeconds(StaticVar.TimeStop - StaticVar.TimeStart);
 
         GameObject.Find("Score").GetComponent<Text>().text += "Time Dreamed :" + string.Format("{0:D2}:{1:D2}:{2:D2}", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds) + "\n\n";
         //Debug.Log(StaticVar.KiaList);
-        if (StaticVar.KiaList.Count!=0) {
-        foreach (DictionaryEntry entry in StaticVar.KiaList) {
-            GameObject.Find("Score").GetComponent<Text>().text += (string)entry.Key + "   :   "+entry.Value+ "\n";
+        if (StaticVar.KiaList.Count != 0)
+        {
+            foreach (DictionaryEntry entry in StaticVar.KiaList)
+            {
+                GameObject.Find("Score").GetComponent<Text>().text += (string)entry.Key + "   :   " + entry.Value + "\n";
             }
         }
-        else {
+        else
+        {
             GameObject.Find("Score").GetComponent<Text>().text += "How did you manage to hit no monsters ?\n";
             GameObject.Find("Score").GetComponent<Text>().text += "Try to click on grass to construct towers next time !\n";
         }
     }
 
-    void Manager(string value) {
-        if (value == "Main") {
+    void Manager(string value)
+    {
+        if (value == "Main")
+        {
             // Do Main Thingies;
         }
-        if (value == "Pause") {
-            if (StaticVar.gameIsPaused) {                           // Unpausing Game
+        if (value == "Pause")
+        {
+            if (StaticVar.gameIsPaused)
+            {                           // Unpausing Game
                 StaticVar.gameIsPaused = false;
                 PauseUnpause();
                 ((CanvasGroup)UIList["Pause"]).alpha = 0;
                 ((CanvasGroup)UIList["Main"]).alpha = 1;
                 ((CanvasGroup)UIList["Obj"]).alpha = 0;
+
             } else {                                            // Pausing Game
                 GameObject.Find("VolumeSlider").GetComponent<Slider>().value = StaticVar.Getvolume();
+
                 StaticVar.gameIsPaused = true;
                 PauseUnpause();
                 ((CanvasGroup)UIList["Pause"]).alpha = 1;
@@ -59,17 +70,23 @@ public class UIManager : MonoBehaviour {
                 ((CanvasGroup)UIList["Obj"]).alpha = 0;
             }
         }
-        if (value == "Obj") {                                   // Display Objectives
-            if (StaticVar.gameIsPaused && (((CanvasGroup)UIList["Obj"]).alpha == 0)) { // IF paused and just sumonned
+        if (value == "Obj")
+        {                                   // Display Objectives
+            if (StaticVar.gameIsPaused && (((CanvasGroup)UIList["Obj"]).alpha == 0))
+            { // IF paused and just sumonned
                 ((CanvasGroup)UIList["Pause"]).alpha = 0;
                 ((CanvasGroup)UIList["Main"]).alpha = 1;
                 ((CanvasGroup)UIList["Obj"]).alpha = 1;
-            } else if (!StaticVar.gameIsPaused && (((CanvasGroup)UIList["Obj"]).alpha == 0)) { // or just summon but Pause wasn't enforced
+            }
+            else if (!StaticVar.gameIsPaused && (((CanvasGroup)UIList["Obj"]).alpha == 0))
+            { // or just summon but Pause wasn't enforced
                 StaticVar.gameIsPaused = true;
                 PauseUnpause();
                 ((CanvasGroup)UIList["Main"]).alpha = 0;
                 ((CanvasGroup)UIList["Obj"]).alpha = 1;
-            } else if (StaticVar.gameIsPaused && (((CanvasGroup)UIList["Obj"]).alpha == 1)) { //Otherwise Just unpause and leave
+            }
+            else if (StaticVar.gameIsPaused && (((CanvasGroup)UIList["Obj"]).alpha == 1))
+            { //Otherwise Just unpause and leave
                 StaticVar.gameIsPaused = false;
                 PauseUnpause();
                 ((CanvasGroup)UIList["Pause"]).alpha = 0;
@@ -77,22 +94,28 @@ public class UIManager : MonoBehaviour {
                 ((CanvasGroup)UIList["Obj"]).alpha = 0;
             }
         }
-        if (value == "Lose") {
+        if (value == "Lose")
+        {
             setScore();
             StaticVar.gameIsPaused = true;
             PauseUnpause();
             //StaticVar.Reset();
-            foreach (DictionaryEntry entry in UIList) {
-                if ((string)entry.Key == value) {
+            foreach (DictionaryEntry entry in UIList)
+            {
+                if ((string)entry.Key == value)
+                {
                     ((CanvasGroup)entry.Value).alpha = 1;
-                } else ((CanvasGroup)entry.Value).alpha = 0;
+                }
+                else ((CanvasGroup)entry.Value).alpha = 0;
             }
         }
     }
 
     // Update is called once per frame
-    void Update() {
-        if (!StaticVar.Lose) {
+    void Update()
+    {
+        if (!StaticVar.Lose)
+        {
             if (Input.GetKeyDown(KeyCode.Escape)) Manager("Pause");
             if (Input.GetKeyDown(KeyCode.F1)) Manager("Obj");
             if (Input.GetKeyDown(KeyCode.F11)) Manager("Lose");

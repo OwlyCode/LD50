@@ -33,15 +33,27 @@ public class mapManager : MonoBehaviour
                 /* print("Tile " + _tile.Name + " costs: " + _tile.Cost);
                  _tile.TilemapMember.SetTileFlags(_tile.LocalPlace, TileFlags.None);
                  _tile.TilemapMember.SetColor(_tile.LocalPlace, Color.red);*/
-                Debug.Log("Ressource " + StaticVar.Ressource);
                 if (!StaticVar.gameIsPaused && _tile.Constructible && StaticVar.Ressource >= StaticVar.bearCost && StaticVar.mouseMode == MouseMode.BuildBear)
                 {
                     _tile.TilemapMember.SetTile(_tile.LocalPlace, tower);
                     StaticVar.Ressource = -StaticVar.bearCost;
-                    Debug.Log(StaticVar.bearCost);
                     StaticVar.bearCost = StaticVar.bearCost * 2;
                     StaticVar.Tower += 1;
                     _tile.Constructible = false;
+                }
+
+                if (!StaticVar.gameIsPaused && StaticVar.mouseMode == MouseMode.Upgrade)
+                {
+                    var go = _tile.TilemapMember.GetInstantiatedObject(_tile.LocalPlace);
+
+                    if (go)
+                    {
+                        var tower = go.GetComponent<BaseTower>();
+                        if (tower != null)
+                        {
+                            tower.UpgradeTower();
+                        }
+                    }
                 }
             }
         }

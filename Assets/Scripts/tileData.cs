@@ -64,8 +64,6 @@ public class tileData : MonoBehaviour
         {
             if (dreamlandCells.Count > 0)
             {
-                Debug.Log("BOOM");
-
                 var coords = Random.Range(0, dreamlandCells.Count);
 
                 // Tilemap.SetTile(dreamlandCells[coords], nightmareTiles[Random.Range(0, nightmareTiles.Count)]);

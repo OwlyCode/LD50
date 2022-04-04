@@ -49,6 +49,15 @@ public class Tooltip : MonoBehaviour
         text.text = textValue;
         cost.text = costValue.ToString();
 
+        if (costValue > StaticVar.Ressource)
+        {
+            cost.color = Color.red;
+        }
+        else
+        {
+            cost.color = Color.black;
+        }
+
         gameObject.SetActive(true);
     }
 
