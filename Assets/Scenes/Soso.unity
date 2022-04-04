@@ -5858,7 +5858,7 @@ MonoBehaviour:
   RessourceText: {fileID: 274751772}
   bearPlaceholder: {fileID: 4807939406627069200, guid: 1ecf53b8f55f0ec409a842d127bfc2a3, type: 3}
   bearBuildingSprite: {fileID: 21300000, guid: 2bff4668ec00038449260e12ec5fecaa, type: 3}
-  upgradeSprite: {fileID: 21300000, guid: 8b2503994d465e445a5e132b6f7986f0, type: 3}
+  upgradeSprite: {fileID: 21300000, guid: a2abb85e1cdd1734394db5e5cce848b7, type: 3}
 --- !u!114 &1271057263
 MonoBehaviour:
   m_ObjectHideFlags: 0

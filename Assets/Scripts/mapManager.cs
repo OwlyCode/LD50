@@ -74,7 +74,7 @@ public class mapManager : MonoBehaviour
 
                 if (!success)
                 {
-                    placeholderInstance.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.33f);
+                    placeholderInstance.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
                 }
             }
         }
