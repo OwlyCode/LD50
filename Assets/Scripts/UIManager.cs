@@ -14,7 +14,6 @@ public class UIManager : MonoBehaviour {
         UIList.Add("Main", GameObject.Find("MainCanvas").GetComponent<CanvasGroup>());
         UIList.Add("Obj", GameObject.Find("Upgrades").GetComponent<CanvasGroup>());
         UIList.Add("Lose", GameObject.Find("GameOver").GetComponent<CanvasGroup>());
-
     }
 
     void setScore() 
@@ -32,8 +31,6 @@ public class UIManager : MonoBehaviour {
             GameObject.Find("Score").GetComponent<Text>().text += "How did you manage to hit no monsters ?\n";
             GameObject.Find("Score").GetComponent<Text>().text += "Try to click on grass to construct towers next time !\n";
         }
-
-
     }
 
     void Manager(string value) {
