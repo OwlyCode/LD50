@@ -15,9 +15,12 @@ public class BaseTower : MonoBehaviour
 
     private GameObject target;
 
+    public int towerLevel = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        this.towerLevel = 0;
         this.targets = new List<GameObject>();
     }
 
@@ -77,4 +80,14 @@ public class BaseTower : MonoBehaviour
         }
     }
 
+    public void UpgradeTower()
+    {
+        var cost = StaticVar.upgradeBearCosts[towerLevel];
+
+        if (towerLevel < StaticVar.upgradeBearCosts.Length - 1 && StaticVar.Ressource >= cost)
+        {
+            StaticVar.Ressource = -cost;
+            towerLevel++;
+        }
+    }
 }
