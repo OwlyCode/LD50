@@ -73,6 +73,72 @@ public class Spawner : MonoBehaviour
                 new SpawnGroup()
                 {
                     prefab = EnnemiesGO[0],
+                    count = 6,
+                    delay = 0.25f,
+                    name = "Bad dream"
+                }
+            },
+            delay = 15f
+        });
+
+        spawnSequences.Add(new SpawnSequence()
+        {
+            spawnGroups = new List<SpawnGroup>()
+            {
+                new SpawnGroup()
+                {
+                    prefab = EnnemiesGO[1],
+                    count = 1,
+                    delay = 0.25f,
+                    name = "Nightmare"
+                }
+            },
+            delay = 15f
+        });
+
+        spawnSequences.Add(new SpawnSequence()
+        {
+            spawnGroups = new List<SpawnGroup>()
+            {
+                new SpawnGroup()
+                {
+                    prefab = EnnemiesGO[0],
+                    count = 3,
+                    delay = 0.25f,
+                    name = "Bad dream"
+                },
+                new SpawnGroup()
+                {
+                    prefab = EnnemiesGO[1],
+                    count = 1,
+                    delay = 0.25f,
+                    name = "Nightmare"
+                }
+            },
+            delay = 15f
+        });
+
+        spawnSequences.Add(new SpawnSequence()
+        {
+            spawnGroups = new List<SpawnGroup>()
+            {
+                new SpawnGroup()
+                {
+                    prefab = EnnemiesGO[0],
+                    count = 3,
+                    delay = 0.25f,
+                    name = "Bad dream"
+                },
+                new SpawnGroup()
+                {
+                    prefab = EnnemiesGO[1],
+                    count = 1,
+                    delay = 0.25f,
+                    name = "Nightmare"
+                },
+                new SpawnGroup()
+                {
+                    prefab = EnnemiesGO[0],
                     count = 3,
                     delay = 0.25f,
                     name = "Bad dream"
@@ -97,7 +163,7 @@ public class Spawner : MonoBehaviour
                     prefab = EnnemiesGO[2],
                     count = 1,
                     delay = 3f,
-                    name = "Squid"
+                    name = "The Scariest Nightmare"
                 }
             },
             delay = 15f
@@ -122,12 +188,19 @@ public class Spawner : MonoBehaviour
         {
             var group = getCurrentGroup();
 
-            if (currentSpawned < group.count * difficulty)
+            if (currentSpawned < group.count * Mathf.Pow(difficulty, 2))
             {
                 if (spawnDelay <= 0)
                 {
                     var go = Instantiate(group.prefab, tileData.path[0], Quaternion.identity);
+
                     go.name = group.name;
+                    var enemy = go.GetComponent<Enemy>();
+
+                    enemy.health *= difficulty;
+                    enemy.unicornProbability = Mathf.Min(80, (difficulty - 1) * 10);
+                    enemy.movespeed += Mathf.Min(0.025f * (difficulty - 2), 0.25f);
+
                     currentSpawned++;
                     spawnDelay = group.delay;
                 }

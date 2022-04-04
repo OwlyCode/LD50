@@ -86,31 +86,35 @@ public class mapManager : MonoBehaviour {
                 placeholderInstance.GetComponentInChildren<SpriteRenderer>().color = new Color(0, 0, 0, 0);
             }
 
-            if (Input.GetMouseButtonDown(0)) {
-                Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                var pointv = new Vector3(point.x, point.y, 0);
-                var worldPoint = grid.WorldToCell(new Vector3(point.x, point.y, 0));
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var pointv = new Vector3(point.x, point.y, 0);
+            var worldPoint = grid.WorldToCell(new Vector3(point.x, point.y, 0));
 
-                var tiles = tileData.instance.tiles; // This is our Dictionary of tiles
+            var tiles = tileData.instance.tiles; // This is our Dictionary of tiles
 
-                if (tiles.TryGetValue(worldPoint, out _tile)) {
-                    if (!StaticVar.gameIsPaused && _tile.Constructible && StaticVar.Ressource >= StaticVar.bearCost && StaticVar.mouseMode == MouseMode.BuildBear) {
-                        _tile.TilemapMember.SetTile(_tile.LocalPlace, tower);
-                        StaticVar.Ressource = -StaticVar.bearCost;
-                        StaticVar.bearCost = StaticVar.bearCost * 2;
-                        StaticVar.Tower += 1;
-                        _tile.Constructible = false;
-                        Tooltip.RefreshBear();
-                    }
+            if (tiles.TryGetValue(worldPoint, out _tile))
+            {
+                if (!StaticVar.gameIsPaused && _tile.Constructible && StaticVar.Ressource >= StaticVar.bearCost && StaticVar.mouseMode == MouseMode.BuildBear)
+                {
+                    _tile.TilemapMember.SetTile(_tile.LocalPlace, tower);
+                    StaticVar.Ressource = -StaticVar.bearCost;
+                    StaticVar.bearCost = Mathf.Min(StaticVar.bearCost * 2, 75);
+                    StaticVar.Tower += 1;
+                    _tile.Constructible = false;
+                    Tooltip.RefreshBear();
+                }
 
-                    if (!StaticVar.gameIsPaused && _tile.Constructible && StaticVar.Ressource >= StaticVar.heartCost && StaticVar.mouseMode == MouseMode.BuildHeart) {
-                        _tile.TilemapMember.SetTile(_tile.LocalPlace, heartTower);
-                        StaticVar.Ressource = -StaticVar.heartCost;
-                        StaticVar.heartCost = StaticVar.heartCost * 2;
-                        StaticVar.Tower += 1;
-                        _tile.Constructible = false;
-                        Tooltip.RefreshHeart();
-                    }
+                if (!StaticVar.gameIsPaused && _tile.Constructible && StaticVar.Ressource >= StaticVar.heartCost && StaticVar.mouseMode == MouseMode.BuildHeart)
+                {
+                    _tile.TilemapMember.SetTile(_tile.LocalPlace, heartTower);
+                    StaticVar.Ressource = -StaticVar.heartCost;
+                    StaticVar.heartCost = Mathf.Min(StaticVar.heartCost * 2, 100);
+                    StaticVar.Tower += 1;
+                    _tile.Constructible = false;
+                    Tooltip.RefreshHeart();
+                }
 
                     if (!StaticVar.gameIsPaused && StaticVar.mouseMode == MouseMode.Upgrade) {
                         var go = _tile.TilemapMember.GetInstantiatedObject(_tile.LocalPlace);

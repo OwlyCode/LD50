@@ -27,10 +27,10 @@ public class StaticVar : MonoBehaviour
     public static Hashtable KiaList = new Hashtable();
 
     public static int bearCost = 1;
-    public static int heartCost = 1;
+    public static int heartCost = 6;
 
-    public static int[] upgradeBearCosts = new int[] { 16, 32, 64 };
-    public static int[] upgradeHeartCosts = new int[] { 16, 32 };
+    public static int[] upgradeBearCosts = new int[] { 15, 50, 64 };
+    public static int[] upgradeHeartCosts = new int[] { 30, 32 };
 
     public static int EnemiesKIA
     {
