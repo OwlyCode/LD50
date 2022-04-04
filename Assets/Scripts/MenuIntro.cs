@@ -22,9 +22,4 @@ public class MenuIntro : MonoBehaviour
     {
         masterMixer.SetFloat("MixerVolume",Mathf.Log10(sliderValue) * 20);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
