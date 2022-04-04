@@ -5,13 +5,13 @@ using UnityEngine.EventSystems;
 
 public class BaseTower : MonoBehaviour
 {
-    const float FIRE_COOLDOWN = 2.5f;
+    private float fireCoolDown = 2.5f;
 
     public GameObject projectilePrefab;
 
     private List<GameObject> targets;
 
-    private float cooldown = FIRE_COOLDOWN;
+    private float cooldown = 0;
 
     private GameObject target;
 
@@ -45,7 +45,7 @@ public class BaseTower : MonoBehaviour
         if (target != null)
         {
             GetComponent<AudioSource>().Play();
-            cooldown = FIRE_COOLDOWN;
+            cooldown = fireCoolDown;
             var p = Instantiate(projectilePrefab);
             p.transform.position = transform.Find("Emitter").transform.position; // transform.position;
             p.GetComponent<BaseMissile>().SetTarget(target);
@@ -88,6 +88,9 @@ public class BaseTower : MonoBehaviour
         {
             StaticVar.Ressource = -cost;
             towerLevel++;
+            GetComponent<Animator>().SetInteger("level", towerLevel);
+
+            fireCoolDown = fireCoolDown / 2f;
         }
     }
 }

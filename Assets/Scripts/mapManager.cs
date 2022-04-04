@@ -14,7 +14,7 @@ public class mapManager : MonoBehaviour
     void Start()
     {
         StaticVar.RessourceText = RessourceText;
-        StaticVar.Ressource = 2;
+        StaticVar.Ressource = 200;
     }
 
     // Update is called once per frame

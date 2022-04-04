@@ -8,9 +8,13 @@ public class BearUpgradeTooltip : MonoBehaviour
     {
         int level = GetComponentInParent<BaseTower>().towerLevel;
 
-        if (StaticVar.mouseMode == MouseMode.Upgrade)
+        if (StaticVar.mouseMode == MouseMode.Upgrade && level < StaticVar.upgradeBearCosts.Length - 1)
         {
             Tooltip.ShowUpgrade(StaticVar.upgradeBearCosts[level]);
+        }
+        else
+        {
+            Tooltip.StaticHide();
         }
     }
 
