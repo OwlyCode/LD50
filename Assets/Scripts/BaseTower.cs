@@ -116,7 +116,6 @@ public class BaseTower : MonoBehaviour
             towerLevel++;
             GetComponent<Animator>().SetInteger("level", towerLevel);
 
-            // TODO BALANCING
             spawnAmount++;
             fireCoolDown = fireCoolDown / 2f;
         }

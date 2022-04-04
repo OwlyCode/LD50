@@ -77,32 +77,7 @@ public class HeartTower : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = tier2Sprite;
             }
 
-            // TODO BALANCING
             buffPower *= 2f;
-        }
-    }
-
-    public void OnMouseOver()
-    {
-        if (StaticVar.mouseMode == MouseMode.Upgrade)
-        {
-            if (towerLevel < StaticVar.upgradeHeartCosts.Length - 1)
-            {
-                Tooltip.ShowUpgrade(StaticVar.upgradeHeartCosts[towerLevel], "Increases the power of the heart.");
-            }
-            else
-            {
-                Tooltip.ShowUpgrade(0);
-            }
-        }
-    }
-
-    //Detect when Cursor leaves the GameObject
-    public void OnMouseExit()
-    {
-        if (StaticVar.mouseMode == MouseMode.Upgrade)
-        {
-            Tooltip.ShowUpgrade(0);
         }
     }
 }
