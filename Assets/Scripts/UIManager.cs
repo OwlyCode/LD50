@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,15 @@ public class UIManager : MonoBehaviour
 
     void setScore()
     {
+        if (StaticVar.TimeStop == 0) { StaticVar.TimeStop = Time.time; }
+        Debug.Log("In Set Score");
+        //Debug.Log(StaticVar.KiaList);
         GameObject.Find("Score").GetComponent<Text>().text = "ScoreBoard :\n\n";
+
+        TimeSpan timeSpan = TimeSpan.FromSeconds(StaticVar.TimeStop - StaticVar.TimeStart);
+
+        GameObject.Find("Score").GetComponent<Text>().text += "Time Dreamed :" + string.Format("{0:D2}:{1:D2}:{2:D2}", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds) + "\n\n";
+        //Debug.Log(StaticVar.KiaList);
         if (StaticVar.KiaList.Count != 0)
         {
             foreach (DictionaryEntry entry in StaticVar.KiaList)

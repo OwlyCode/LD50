@@ -32,9 +32,9 @@ public class tileData : MonoBehaviour
 
     private void Awake()
     {
-        music = GameObject.Find("/Music").GetComponent<AudioSource>();
-        badMusic = GameObject.Find("/BadMusic").GetComponent<AudioSource>();
-        breakSound = GameObject.Find("/BreakSound").GetComponent<AudioSource>();
+        music = GameObject.Find("/Sound/Music").GetComponent<AudioSource>();
+        badMusic = GameObject.Find("/Sound/BadMusic").GetComponent<AudioSource>();
+        breakSound = GameObject.Find("/Sound/BreakSound").GetComponent<AudioSource>();
 
         dreamlandCells = new List<Vector3Int>();
         path = new List<Vector3>();
@@ -54,6 +54,7 @@ public class tileData : MonoBehaviour
 
         path = computePath();
         StaticVar.TimeStart = Time.time;
+        Debug.Log("Started Time" +Time.time);
     }
 
     public void DestroyDreamland(int amount)
@@ -76,6 +77,8 @@ public class tileData : MonoBehaviour
             else
             {
                 StaticVar.Lose = true;
+                StaticVar.TimeStop = Time.time;
+                Debug.Log("Time Stopped :"+Time.time);
             }
         }
 
