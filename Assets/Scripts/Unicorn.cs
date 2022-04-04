@@ -14,5 +14,11 @@ public class Unicorn : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * 10f);
+
+        if (transform.position == target)
+        {
+            StaticVar.Ressource = 1;
+            Destroy(gameObject);
+        }
     }
 }

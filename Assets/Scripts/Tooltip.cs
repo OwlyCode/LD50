@@ -27,7 +27,7 @@ public class Tooltip : MonoBehaviour
 
     public void ShowBear()
     {
-        Show("Bear", StaticVar.bearCost);
+        Show("Build Teddy Bear", StaticVar.bearCost);
     }
 
     public static void RefreshBear()

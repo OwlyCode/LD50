@@ -6,6 +6,8 @@ using UnityEngine.Tilemaps;
 public class tileData : MonoBehaviour
 {
     const string PATHWAY_TILE = "pathway_v2";
+    const string VOID_TILE = "void_land";
+    const string BORDER_TILE = "borderland";
 
     public static tileData instance;
     public Tilemap Tilemap;
@@ -35,7 +37,7 @@ public class tileData : MonoBehaviour
         music = GameObject.Find("/Sound/Music").GetComponent<AudioSource>();
         badMusic = GameObject.Find("/Sound/BadMusic").GetComponent<AudioSource>();
         breakSound = GameObject.Find("/Sound/BreakSound").GetComponent<AudioSource>();
-        
+
 
         dreamlandCells = new List<Vector3Int>();
         path = new List<Vector3>();
@@ -55,7 +57,7 @@ public class tileData : MonoBehaviour
 
         path = computePath();
         StaticVar.TimeStart = Time.time;
-        Debug.Log("Started Time" +Time.time);
+        Debug.Log("Started Time" + Time.time);
     }
 
     public void DestroyDreamland(int amount)
@@ -79,7 +81,7 @@ public class tileData : MonoBehaviour
             {
                 StaticVar.Lose = true;
                 StaticVar.TimeStop = Time.time;
-                Debug.Log("Time Stopped :"+Time.time);
+                Debug.Log("Time Stopped :" + Time.time);
             }
         }
 
@@ -107,7 +109,7 @@ public class tileData : MonoBehaviour
             var localPlace = new Vector3Int(pos.x, pos.y, pos.z);
 
             if (!Tilemap.HasTile(localPlace)) continue;
-            if (Tilemap.GetTile(localPlace).name == PATHWAY_TILE) { tmp = false; }
+            if (Tilemap.GetTile(localPlace).name == PATHWAY_TILE || Tilemap.GetTile(localPlace).name == VOID_TILE || Tilemap.GetTile(localPlace).name == BORDER_TILE) { tmp = false; }
 
             if (tmp)
             {

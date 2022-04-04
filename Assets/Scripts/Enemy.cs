@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
         }
         // Else "on Death"
         StaticVar.EnemiesKIA = 1;
-        StaticVar.Ressource = 0.3f / Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA, -1)) + 5);
+        // StaticVar.Ressource = 0.3f / Mathf.Abs((float)Mathf.Log(Mathf.Pow(StaticVar.EnemiesKIA, -1)) + 5);
         if (StaticVar.KiaList.Contains(gameObject.name))
         {
             StaticVar.KiaList[gameObject.name] = (int)StaticVar.KiaList[gameObject.name] + 1;
@@ -89,7 +89,6 @@ public class Enemy : MonoBehaviour
         if (Random.Range(0, 100) > 80)
         {
             Instantiate(unicorn, transform.position, Quaternion.identity);
-            StaticVar.Ressource = 1;
 
         }
         Instantiate(explosion, transform.position, Quaternion.identity);
