@@ -104,7 +104,7 @@ public class Spawner : MonoBehaviour
             state = SpawnerState.Spawning;
         }
 
-        if (state == SpawnerState.Spawning)
+        if (state == SpawnerState.Spawning && !StaticVar.gameIsPaused)
         {
             var group = getCurrentGroup();
 
