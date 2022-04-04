@@ -526,6 +526,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 101675669}
+  - component: {fileID: 101675670}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -550,6 +551,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &101675670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101675668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b3d835a9aaab348a3473757b7e365d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VolumeSlider: {fileID: 876251183}
+  Sound: {fileID: 101675668}
 --- !u!1 &114554731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4149,7 +4164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b3d835a9aaab348a3473757b7e365d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapGen: {fileID: 472096933}
+  VolumeSlider: {fileID: 0}
+  Sound: {fileID: 0}
 --- !u!4 &472096935
 Transform:
   m_ObjectHideFlags: 0
@@ -5043,7 +5059,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 30, y: -102}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 110.9582, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &873347747
 MonoBehaviour:
