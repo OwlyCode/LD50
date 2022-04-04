@@ -14,7 +14,7 @@ public class Tooltip : MonoBehaviour
     void Start()
     {
         _instance = this;
-        //Hide();
+        Hide();
     }
 
     // Update is called once per frame
