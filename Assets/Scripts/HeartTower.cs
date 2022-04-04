@@ -88,7 +88,7 @@ public class HeartTower : MonoBehaviour
         {
             if (towerLevel < StaticVar.upgradeHeartCosts.Length - 1)
             {
-                Tooltip.ShowUpgrade(StaticVar.upgradeHeartCosts[towerLevel]);
+                Tooltip.ShowUpgrade(StaticVar.upgradeHeartCosts[towerLevel], "Increases the power of the heart.");
             }
             else
             {

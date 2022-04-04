@@ -12,7 +12,7 @@ public class BearUpgradeTooltip : MonoBehaviour
         {
             if (level < StaticVar.upgradeBearCosts.Length - 1)
             {
-                Tooltip.ShowUpgrade(StaticVar.upgradeBearCosts[level]);
+                Tooltip.ShowUpgrade(StaticVar.upgradeBearCosts[level], "Increases the firerate and adds one bullet.");
             }
             else
             {
