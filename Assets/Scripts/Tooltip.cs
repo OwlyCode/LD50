@@ -8,13 +8,15 @@ public class Tooltip : MonoBehaviour
     public Text text;
     public Text cost;
 
+    public GameObject unicorn;
+
     static Tooltip _instance;
 
     // Start is called before the first frame update
     void Start()
     {
         _instance = this;
-        //Hide();
+        Hide();
     }
 
     // Update is called once per frame
@@ -26,6 +28,20 @@ public class Tooltip : MonoBehaviour
     public void ShowBear()
     {
         Show("Bear", StaticVar.bearCost);
+    }
+
+    public static void RefreshBear()
+    {
+
+        if (_instance)
+        {
+            _instance.ShowBear();
+        }
+    }
+
+    public void ShowBlankUpgrade()
+    {
+        Show("Upgrade", 0);
     }
 
     public static void ShowUpgrade(int cost)
@@ -47,7 +63,10 @@ public class Tooltip : MonoBehaviour
     public void Show(string textValue, int costValue)
     {
         text.text = textValue;
-        cost.text = costValue.ToString();
+        cost.text = costValue > 0 ? costValue.ToString() : "";
+
+        unicorn.SetActive(costValue > 0);
+
 
         if (costValue > StaticVar.Ressource)
         {

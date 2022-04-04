@@ -44,3 +44,6 @@ TagManager:
   - name: Tall
     uniqueID: 1636323077
     locked: 0
+  - name: Front
+    uniqueID: 4201838233
+    locked: 0

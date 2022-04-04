@@ -11,15 +11,78 @@ public class mapManager : MonoBehaviour
     public TileBase tower;
     public Text RessourceText;
 
+    public GameObject bearPlaceholder;
+
+    private GameObject placeholderInstance;
+
+    public Sprite bearBuildingSprite;
+
+    public Sprite upgradeSprite;
+
     void Start()
     {
         StaticVar.RessourceText = RessourceText;
-        StaticVar.Ressource = 2;
+        StaticVar.Ressource = 200;
+
+        placeholderInstance = Instantiate(bearPlaceholder);
     }
 
     // Update is called once per frame
     private void Update()
     {
+        if (StaticVar.mouseMode != MouseMode.None)
+        {
+            Vector3 p = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var worldPoint = grid.WorldToCell(new Vector3(p.x, p.y, 0));
+
+            placeholderInstance.transform.position = grid.CellToWorld(worldPoint);
+
+            var tiles = tileData.instance.tiles;
+            var foundTile = tiles.TryGetValue(worldPoint, out _tile);
+
+            if (StaticVar.mouseMode == MouseMode.BuildBear)
+            {
+                placeholderInstance.GetComponentInChildren<SpriteRenderer>().sprite = bearBuildingSprite;
+
+                if (StaticVar.Ressource >= StaticVar.bearCost && foundTile && _tile.Constructible)
+                {
+                    placeholderInstance.GetComponentInChildren<SpriteRenderer>().color = new Color(0, 1, 0, 0.33f);
+                }
+                else
+                {
+                    placeholderInstance.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.33f);
+                }
+            }
+            else
+            {
+                placeholderInstance.GetComponentInChildren<SpriteRenderer>().sprite = upgradeSprite;
+                var success = false;
+
+                if (foundTile)
+                {
+                    var go = _tile.TilemapMember.GetInstantiatedObject(_tile.LocalPlace);
+                    if (go != null)
+                    {
+                        var tower = go.GetComponent<BaseTower>();
+                        if (tower != null && tower.canUpgrade())
+                        {
+                            placeholderInstance.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+                            success = true;
+                        }
+                    }
+                }
+
+                if (!success)
+                {
+                    placeholderInstance.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
+                }
+            }
+        }
+        else
+        {
+            placeholderInstance.GetComponentInChildren<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -40,6 +103,7 @@ public class mapManager : MonoBehaviour
                     StaticVar.bearCost = StaticVar.bearCost * 2;
                     StaticVar.Tower += 1;
                     _tile.Constructible = false;
+                    Tooltip.RefreshBear();
                 }
 
                 if (!StaticVar.gameIsPaused && StaticVar.mouseMode == MouseMode.Upgrade)

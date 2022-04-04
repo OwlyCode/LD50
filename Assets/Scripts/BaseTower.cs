@@ -5,13 +5,15 @@ using UnityEngine.EventSystems;
 
 public class BaseTower : MonoBehaviour
 {
-    const float FIRE_COOLDOWN = 2.5f;
+    private float fireCoolDown = 2.5f;
 
     public GameObject projectilePrefab;
 
     private List<GameObject> targets;
 
-    private float cooldown = FIRE_COOLDOWN;
+    private float cooldown = 0;
+
+    private int spawnAmount = 1;
 
     private GameObject target;
 
@@ -45,11 +47,25 @@ public class BaseTower : MonoBehaviour
         if (target != null)
         {
             GetComponent<AudioSource>().Play();
-            cooldown = FIRE_COOLDOWN;
-            var p = Instantiate(projectilePrefab);
-            p.transform.position = transform.Find("Emitter").transform.position; // transform.position;
-            p.GetComponent<BaseMissile>().SetTarget(target);
-            GetComponent<Animator>().ResetTrigger("Fire");
+            cooldown = fireCoolDown;
+
+            StartCoroutine(FireRepeat());
+        }
+    }
+
+    IEnumerator FireRepeat()
+    {
+        for (int cpt = 0; cpt < spawnAmount; cpt++)
+        {
+            if (target != null)
+            {
+                var p = Instantiate(projectilePrefab);
+                p.transform.position = transform.Find("Emitter").transform.position; // transform.position;
+                p.GetComponent<BaseMissile>().SetTarget(target);
+                GetComponent<Animator>().ResetTrigger("Fire");
+                yield return new WaitForSeconds(0.15f);
+            }
+            target = pickTarget();
         }
     }
 
@@ -80,14 +96,26 @@ public class BaseTower : MonoBehaviour
         }
     }
 
+    public bool canUpgrade()
+    {
+        var cost = StaticVar.upgradeBearCosts[towerLevel];
+
+        return towerLevel < StaticVar.upgradeBearCosts.Length - 1 && StaticVar.Ressource >= cost;
+    }
+
     public void UpgradeTower()
     {
         var cost = StaticVar.upgradeBearCosts[towerLevel];
 
-        if (towerLevel < StaticVar.upgradeBearCosts.Length - 1 && StaticVar.Ressource >= cost)
+        if (canUpgrade())
         {
             StaticVar.Ressource = -cost;
             towerLevel++;
+            GetComponent<Animator>().SetInteger("level", towerLevel);
+
+            // TODO BALANCING
+            spawnAmount++;
+            fireCoolDown = fireCoolDown / 2f;
         }
     }
 }

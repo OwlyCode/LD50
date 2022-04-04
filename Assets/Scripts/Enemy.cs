@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     List<Vector3> path;
     Vector3 currentTarget;
 
-    float offsetShakiness = 0.125f;
+    float offsetShakiness = 0.250f;
 
     float zOffset = 0f;
 
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        offset = new Vector3(Random.Range(-offsetShakiness, offsetShakiness), Random.Range(-offsetShakiness, offsetShakiness), 0);
+        offset = new Vector3(Random.Range(0, offsetShakiness), Random.Range(0, offsetShakiness), 0);
     }
 
     void Update()

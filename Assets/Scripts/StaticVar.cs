@@ -24,7 +24,7 @@ public class StaticVar : MonoBehaviour {
     public static Hashtable KiaList = new Hashtable();
 
     public static int bearCost = 1;
-    public static int[] upgradeBearCosts = new int[] { 1, 4, 8 };
+    public static int[] upgradeBearCosts = new int[] { 16, 32, 64 };
 
     public static int EnemiesKIA {
         get {
@@ -41,7 +41,7 @@ public class StaticVar : MonoBehaviour {
         }
         set {
             _ressource += value;
-            StaticVar.RessourceText.text = "Ressources : " + Mathf.FloorToInt(_ressource);
+            StaticVar.RessourceText.text = "" + Mathf.FloorToInt(_ressource);
         }
     }
 
