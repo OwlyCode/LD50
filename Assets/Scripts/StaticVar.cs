@@ -49,20 +49,21 @@ public class StaticVar : MonoBehaviour
         set
         {
             _ressource += value;
-            StaticVar.RessourceText.text = "Ressources : " + Mathf.FloorToInt(_ressource);
+            StaticVar.RessourceText.text = "" + Mathf.FloorToInt(_ressource);
         }
     }
 
     public static float Getvolume() { return Volume; }
 
-    public static float SetVolume(float Volumetoset) { 
-        Volume = Volumetoset; 
-        foreach(Transform child in Sound.transform)
+    public static float SetVolume(float Volumetoset)
+    {
+        Volume = Volumetoset;
+        foreach (Transform child in Sound.transform)
         {
             child.GetComponent<AudioSource>().volume = StaticVar.Volume;
         }
-        return Volume; 
-        }
+        return Volume;
+    }
 
     public void Reset()
     {

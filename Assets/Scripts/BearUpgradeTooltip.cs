@@ -8,19 +8,25 @@ public class BearUpgradeTooltip : MonoBehaviour
     {
         int level = GetComponentInParent<BaseTower>().towerLevel;
 
-        if (StaticVar.mouseMode == MouseMode.Upgrade && level < StaticVar.upgradeBearCosts.Length - 1)
+        if (StaticVar.mouseMode == MouseMode.Upgrade)
         {
-            Tooltip.ShowUpgrade(StaticVar.upgradeBearCosts[level]);
-        }
-        else
-        {
-            Tooltip.StaticHide();
+            if (level < StaticVar.upgradeBearCosts.Length - 1)
+            {
+                Tooltip.ShowUpgrade(StaticVar.upgradeBearCosts[level]);
+            }
+            else
+            {
+                Tooltip.ShowUpgrade(0);
+            }
         }
     }
 
     //Detect when Cursor leaves the GameObject
     public void OnMouseExit()
     {
-        Tooltip.StaticHide();
+        if (StaticVar.mouseMode == MouseMode.Upgrade)
+        {
+            Tooltip.ShowUpgrade(0);
+        }
     }
 }

@@ -103,6 +103,7 @@ public class mapManager : MonoBehaviour
                     StaticVar.bearCost = StaticVar.bearCost * 2;
                     StaticVar.Tower += 1;
                     _tile.Constructible = false;
+                    Tooltip.RefreshBear();
                 }
 
                 if (!StaticVar.gameIsPaused && StaticVar.mouseMode == MouseMode.Upgrade)
