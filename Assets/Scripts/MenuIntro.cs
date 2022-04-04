@@ -9,10 +9,8 @@ public class MenuIntro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        VolumeSlider.maxValue = 100f;
-        VolumeSlider.minValue = 0f;
-        VolumeSlider.value = 50f;
-        StaticVar.SetVolume(50);
+        VolumeSlider.value = 0.3f;
+        StaticVar.SetVolume(VolumeSlider.value);
     }
 
     // Update is called once per frame

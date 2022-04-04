@@ -31,8 +31,6 @@ public class Spawner : MonoBehaviour
 
     private float spawnRate = 2f;
 
-    private float spawnRateIncrease = 0.01f;
-
     private float spawnDelay = 2f;
 
     private List<SpawnSequence> spawnSequences;
