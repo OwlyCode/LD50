@@ -7,6 +7,7 @@ public class SpawnGroup
 {
     public GameObject prefab;
     public int count;
+    public string name;
     public float delay;
 }
 
@@ -74,13 +75,15 @@ public class Spawner : MonoBehaviour
                 {
                     prefab = EnnemiesGO[0],
                     count = 3,
-                    delay = 0.25f
+                    delay = 0.25f,
+                    name = "Bad dream"
                 },
                 new SpawnGroup()
                 {
                     prefab = EnnemiesGO[1],
                     count = 1,
-                    delay = 0.25f
+                    delay = 0.25f,
+                    name = "Nightmare"
                 }
             },
             delay = 5f
@@ -110,6 +113,7 @@ public class Spawner : MonoBehaviour
                 if (spawnDelay <= 0)
                 {
                     var go = Instantiate(group.prefab, tileData.path[0], Quaternion.identity);
+                    go.name = group.prefab.name;
                     currentSpawned++;
                     spawnDelay = group.delay;
                 }
