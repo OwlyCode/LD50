@@ -26,7 +26,7 @@ public class mapManager : MonoBehaviour
     void Start()
     {
         StaticVar.RessourceText = RessourceText;
-        StaticVar.Ressource = 200;
+        StaticVar.Ressource = 3;
 
         placeholderInstance = Instantiate(bearPlaceholder);
     }
@@ -121,7 +121,7 @@ public class mapManager : MonoBehaviour
                 {
                     _tile.TilemapMember.SetTile(_tile.LocalPlace, tower);
                     StaticVar.Ressource = -StaticVar.bearCost;
-                    StaticVar.bearCost = StaticVar.bearCost * 2;
+                    StaticVar.bearCost = Mathf.Min(StaticVar.bearCost * 2, 75);
                     StaticVar.Tower += 1;
                     _tile.Constructible = false;
                     Tooltip.RefreshBear();
@@ -131,7 +131,7 @@ public class mapManager : MonoBehaviour
                 {
                     _tile.TilemapMember.SetTile(_tile.LocalPlace, heartTower);
                     StaticVar.Ressource = -StaticVar.heartCost;
-                    StaticVar.heartCost = StaticVar.heartCost * 2;
+                    StaticVar.heartCost = Mathf.Min(StaticVar.heartCost * 2, 100);
                     StaticVar.Tower += 1;
                     _tile.Constructible = false;
                     Tooltip.RefreshHeart();

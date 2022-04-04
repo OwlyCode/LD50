@@ -200,8 +200,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unicorn: {fileID: 254973357732813244, guid: 1f50c3831a5b0ba43ab5bf22cfff0b39, type: 3}
   explosion: {fileID: 1082425321016455143, guid: 36a9e84f16db26e428f788f7614f3086, type: 3}
-  health: 2
+  health: 1
   damages: 3
-  unicornProbability: 70
+  unicornProbability: 0
   unicornAmount: 1
   unicornValue: 1
+  movespeed: 0.5
