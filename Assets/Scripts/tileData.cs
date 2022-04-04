@@ -82,7 +82,7 @@ public class tileData : MonoBehaviour
         }
 
 
-        if (!brokeSound && (float)dreamlandCells.Count / (float)initialHealthyCells < 0.95f)
+        if (!brokeSound && (float)dreamlandCells.Count / (float)initialHealthyCells < 0.5f)
         {
             music.volume = 0;
             breakSound.Play();
