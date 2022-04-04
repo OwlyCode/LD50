@@ -96,11 +96,18 @@ public class BaseTower : MonoBehaviour
         }
     }
 
+    public bool canUpgrade()
+    {
+        var cost = StaticVar.upgradeBearCosts[towerLevel];
+
+        return towerLevel < StaticVar.upgradeBearCosts.Length - 1 && StaticVar.Ressource >= cost;
+    }
+
     public void UpgradeTower()
     {
         var cost = StaticVar.upgradeBearCosts[towerLevel];
 
-        if (towerLevel < StaticVar.upgradeBearCosts.Length - 1 && StaticVar.Ressource >= cost)
+        if (canUpgrade())
         {
             StaticVar.Ressource = -cost;
             towerLevel++;
