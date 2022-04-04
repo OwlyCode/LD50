@@ -35,6 +35,7 @@ public class tileData : MonoBehaviour
         music = GameObject.Find("/Sound/Music").GetComponent<AudioSource>();
         badMusic = GameObject.Find("/Sound/BadMusic").GetComponent<AudioSource>();
         breakSound = GameObject.Find("/Sound/BreakSound").GetComponent<AudioSource>();
+        
 
         dreamlandCells = new List<Vector3Int>();
         path = new List<Vector3>();

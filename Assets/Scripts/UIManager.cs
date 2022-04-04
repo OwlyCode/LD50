@@ -59,9 +59,10 @@ public class UIManager : MonoBehaviour
                 ((CanvasGroup)UIList["Pause"]).alpha = 0;
                 ((CanvasGroup)UIList["Main"]).alpha = 1;
                 ((CanvasGroup)UIList["Obj"]).alpha = 0;
-            }
-            else
-            {                                            // Pausing Game
+
+            } else {                                            // Pausing Game
+                GameObject.Find("VolumeSlider").GetComponent<Slider>().value = StaticVar.Getvolume();
+
                 StaticVar.gameIsPaused = true;
                 PauseUnpause();
                 ((CanvasGroup)UIList["Pause"]).alpha = 1;

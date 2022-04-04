@@ -22,6 +22,7 @@ public class StaticVar : MonoBehaviour
     public static int Tower { get; set; }
     public static float TimeStart { get; set; }
     public static float TimeStop { get; set; }
+    public static GameObject Sound;
     public static Hashtable KiaList = new Hashtable();
 
     public static int bearCost = 1;
@@ -54,7 +55,14 @@ public class StaticVar : MonoBehaviour
 
     public static float Getvolume() { return Volume; }
 
-    public static float SetVolume(float Volumetoset) { Volume = Volumetoset; return Volume; }
+    public static float SetVolume(float Volumetoset) { 
+        Volume = Volumetoset; 
+        foreach(Transform child in Sound.transform)
+        {
+            child.GetComponent<AudioSource>().volume = StaticVar.Volume;
+        }
+        return Volume; 
+        }
 
     public void Reset()
     {
