@@ -57,7 +57,9 @@ public class UIManager : MonoBehaviour
                 StaticVar.gameIsPaused = false;
                 PauseUnpause();
                 ((CanvasGroup)UIList["Pause"]).alpha = 0;
+                ((CanvasGroup)UIList["Pause"]).interactable = false;
                 ((CanvasGroup)UIList["Main"]).alpha = 1;
+                ((CanvasGroup)UIList["Main"]).interactable = true;
 
             }
             else
@@ -67,7 +69,9 @@ public class UIManager : MonoBehaviour
                 StaticVar.gameIsPaused = true;
                 PauseUnpause();
                 ((CanvasGroup)UIList["Pause"]).alpha = 1;
+                ((CanvasGroup)UIList["Pause"]).interactable = true;
                 ((CanvasGroup)UIList["Main"]).alpha = 0;
+                ((CanvasGroup)UIList["Main"]).interactable = false;
             }
         }
         if (value == "Lose")
@@ -81,8 +85,13 @@ public class UIManager : MonoBehaviour
                 if ((string)entry.Key == value)
                 {
                     ((CanvasGroup)entry.Value).alpha = 1;
+                    ((CanvasGroup)entry.Value).interactable = true;
                 }
-                else ((CanvasGroup)entry.Value).alpha = 0;
+                else
+                {
+                    ((CanvasGroup)entry.Value).alpha = 0;
+                    ((CanvasGroup)entry.Value).interactable = false;
+                }
             }
         }
     }
